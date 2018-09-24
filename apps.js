@@ -24,8 +24,9 @@ function getInfo(){
             return true;
         }
     }
-    alert("Wrong username and/or password")   
-    console.log("Button is clicked");
+    alert("Wrong username and/or password") 
+      
+console.log("Button is clicked");
 };
 
 
