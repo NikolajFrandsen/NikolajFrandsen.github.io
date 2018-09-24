@@ -20,11 +20,11 @@ function getInfo(){
     var password = document.getElementById("password").value
     for (i = 0; i < objPeople.length; i++){
         if(username == objPeople[i].username && password == objPeople[i].password){
-            alert("Login successful");
+            window.location.replace("https://google.com");
             return true;
         }
     }
-    alert("Wrong username and/or password") 
+    document.getElementById("loginResult").innerHTML = "Login Failed";
 console.log("Button is clicked");
 };
 
