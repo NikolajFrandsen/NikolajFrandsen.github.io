@@ -15,12 +15,13 @@ var objPeople = [
     }
 ]
 
-function getInfo(){
+submit.onclick = function (){
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
     for (i = 0; i < objPeople.length; i++){
         if(username == objPeople[i].username && password == objPeople[i].password){
             window.location.replace("https://google.com");
+            // 'Return true' helps to only return the successful login and leave out the other results. 
             return true;
         }
     }
