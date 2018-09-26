@@ -20,7 +20,7 @@ function getInfo(){
     var password = document.getElementById("password").value
     for (i = 0; i < objPeople.length; i++){
         if(username == objPeople[i].username && password == objPeople[i].password){
-            window.location.replace("https://google.com");
+            window.location.replace("http://127.0.0.1:5500/loggedin.html");
             return true;
         }
     }
