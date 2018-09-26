@@ -28,6 +28,7 @@ function getInfo(){
 console.log("Button is clicked");
 };
 
+// create a counter which only gives you three attempts
 
 
   
