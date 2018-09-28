@@ -21,7 +21,7 @@ submit.onclick = function (){
     for (i = 0; i < objPeople.length; i++){
         if(username == objPeople[i].username && password == objPeople[i].password){
             window.location.replace("https://google.com");
-            // 'Return true' helps to only return the successful login and leave out the other results. 
+            // 'Return true' helps to only return the successful login and leave out the other results. In other words, it jumps outside the function. 
             return true;
         }
     }
