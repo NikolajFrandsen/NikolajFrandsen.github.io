@@ -4,14 +4,26 @@ span {
     color: red;
 }
 body {
-    background-image: url("https://images.pexels.com/photos/416676/pexels-photo-416676.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-color: rgba(255,255,255, 1);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 h1{
-    font-family: 'Times New Roman';
+    font-family: 'Montserrat','Helvetica Neue','Helvetica Neue Regular','Helvetica Regular',Helvetica,Arial,sans-serif;;
+    letter-spacing: 2px;
 }
 h3{
     margin: 5px;
 }
-
+.topnav{
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+.topnav a{
+    float: left;
+    color: #2b2b2b;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
