@@ -1,3 +1,6 @@
+
+// FRONT PAGE: LOGIN 
+
 var submit = document.getElementById('submit');
 var resultSpan = document.getElementById('loginResult');
 
@@ -18,6 +21,8 @@ var objPeople = [
 ]
 
 var loginAttempts = 3;
+
+
 //LOGIN FUNCTION 
 submit.onclick = function (){
     var username = document.getElementById("username").value
@@ -47,6 +52,10 @@ if (loginAttempts == 0){
         return false;
     }
 };
+
+
+// CREATE NEW USER
+
 
 
 
