@@ -1,4 +1,6 @@
 var submit = document.getElementById('submit');
+var resultSpan = document.getElementById('loginResult');
+
 
 var objPeople = [
     {
@@ -15,21 +17,39 @@ var objPeople = [
     }
 ]
 
+var loginAttempts = 3;
+//LOGIN FUNCTION 
 submit.onclick = function (){
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
     for (i = 0; i < objPeople.length; i++){
         if(username == objPeople[i].username && password == objPeople[i].password){
             window.location.replace("loggedin.html");
-            // 'Return true' helps to only return the successful login and leave out the other results. In other words, it jumps outside the function. 
+            // 'Return true' helps to only return the successful login and leave out the other results.
             return true;
-        }
-    }
-    document.getElementById("loginResult").innerHTML = "Login Failed";
-console.log("Button is clicked");
+        }   
+    console.log("Button is clicked");
 };
 
-// create a counter which only gives you three attempts
+// Our login function should also have a counter. 
+// We move our counter out of the 'for' loop, but keep it inside the function. 
+
+if (loginAttempts == 0){
+    document.getElementById("loginResult").innerHTML = "No more login attempts";
+} else {
+    loginAttempts--;
+    document.getElementById("loginResult").innerHTML =("Only" + " " + loginAttempts + " " + "login attempts left");
+    if (loginAttempts == 0){
+        document.getElementById(username).disabled = true;
+        document.getElementById(password).disabled = true;
+        submit.disabled = true;
+        }
+        return false;
+    }
+};
+
+
+
 
 
   
