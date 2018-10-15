@@ -23,29 +23,59 @@
         </div>
     </div>
 
-    <section>
-            <h2>Sign Up</h2>
-            <p>Please fill in all the boxes below</p>
+    <section class="login-block">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-4 login-sec">
+                    <h2 class="text-center">Register here</h2>
+                    <form class="login-form">
+          <div class="createUser">
+            <label for="inputUsername" class="text-uppercase">Username</label>
+            <input type="text" class="form-control" placeholder="Username" id="newUser">
+            <span id="checkUsername"></span>
+            
+          </div>
+          <div class="createUser">
+            <label for="inputPassword" class="text-uppercase">Password</label>
+            <input type="password" class="form-control" placeholder="Password" id="newPassword">
+            <span id="checkPassword"></span>
+          </div>
+          <!-- <div class="createUser">
+                <label for="inputPassword" class="text-uppercase">Password</label>
+                <input type="password" class="form-control" placeholder="Password" id="newPassword">
+                <span id="checkPassword"></span>
+            </div> -->
+            <button type="button" class="btn btn-login float-right" onclick="registerUser()">Register</button>
+          </div>
+          
+        </form>
+    </section>
 
-            <h3>Username</h3>
-            <input type="userName" placeholder="Enter Username" name="userName" id="userName" />
-
-            <h3>Password</h3>
-            <input type="password" placeholder="Enter Password" name="password" id="password" />
-
+           
+<!--
             <h3>Repeat Password</h3>
             <input type="password" placeholder="Repeat Password"  name="password" id="repeat-password" />
+            -->
             
-            <input type="button" class="btn btn-success" value="Create user" name="submit" id="submit"></button>
-            
-            <span id="loginResult"></span>
-    </section>
+
+</div>
+
+    <section class="footer">
+            <div class="container-fluid">
+                <div class='row'>
+                    <div class='col-xs-12 col-md-4'>
+                        <h1>Footer</h1>
+                    </div>
+                </div>   
+            </div>
+        
+        </section>
 
     <!--
         Scripts and Stylesheets
     -->
 
-    <script src="apps.js"></script>
+    <script src="scripts/apps.js"></script>
     <link rel="stylesheet" href="styles/createuser.css">
 
 </body>

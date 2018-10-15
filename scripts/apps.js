@@ -4,7 +4,6 @@
 var submit = document.getElementById('submit');
 var resultSpan = document.getElementById('loginResult');
 
-
 var objPeople = [
     {
         username: "Frederik",
@@ -19,6 +18,7 @@ var objPeople = [
         password: "12345"
     }
 ]
+
 
 var loginAttempts = 3;
 
@@ -53,8 +53,46 @@ if (loginAttempts == 0){
     }
 };
 
-
 // CREATE NEW USER
+
+function registerUser(){
+
+    //Retrieve information from input fields
+
+    var registerUser = document.getElementById("newUser").value
+    var registerPassword = document.getElementById("newPassword").value
+    
+    //Create new variable which we can push to our object. 
+    
+    var newUser = {
+        username: registerUser,
+        password: registerPassword
+    }
+
+    // Make sure the username is not taken
+
+    for (i = 0; i < objPeople.length; i++){
+        if(registerUser == objPeople[i].username){
+                document.getElementById("checkUsername").innerHTML =("That username already exists")
+                return
+
+    //Check password length
+
+            } else if (registerPassword.length < 8) {
+                document.getElementById("checkPassword").innerHTML =("Your password is too short")
+                return
+            }
+        }
+
+    // Push new user to our object in the top
+
+    objPeople.push(newUser)
+
+    // localStorage.setItem("users", JSON.stringify(objPeople));
+    
+    console.log(objPeople)
+}
+
 
 
 // Show Selected filter

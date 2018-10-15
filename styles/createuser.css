@@ -18,3 +18,10 @@ h3{
     font-size: 20px;
     margin-top: 20px;
 }
+.footer{
+    position: relative;
+    margin-top: 15%;
+}
+#submit{
+    height: 25px;
+}
