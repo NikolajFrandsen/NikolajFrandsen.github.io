@@ -18,9 +18,9 @@
 
     <!-- HEADER & LOGIN FUNCTION -->
     
-    <div class="container-fluid">
-        <h1>SpotFinder</h1>
+<div class="container-fluid">
     <div class='col-xs-12 col-md-4'>
+        <h1>SpotFinder</h1>
         <div class="topnav">
             <a class="btn btn-primary" href="#Home">Home</a>
             <a class="btn btn-primary" href="#Spots">Spots</a>
@@ -70,7 +70,30 @@
 <!-- Coloumns (Inspired by Geomatic) -->
 
 <section id="showcase">
-    <div class="container">
+    <div class="container-filter" id="sidebar">
+            <button class="btn btn-primary active" onclick="filterSelection('levelShowAll')">Show All</button>
+
+            <!-- Level filter -->
+            <button class="btn btn-primary" onclick="filterSelection('levelBeginner')">Beginner</button>
+            <button class="btn btn-primary" onclick="filterSelection('levelIntermediate')">Intermediate</button>
+            <button class="btn btn-primary" onclick="filterSelection('levelPro')">Pro</button>
+    
+            <!-- Spot Type Filter -->
+            
+            <button class="btn btn-primary" onclick="filterSelection('typeBeachBreak')">Beach Break</button>
+            <button class="btn btn-primary" onclick="filterSelection('typeReefBreak')">Reef Break</button>
+            <button class="btn btn-primary" onclick="filterSelection('typePointBreak')">Point break</button>
+    
+            <!-- Country Filter -->
+            <button class="btn btn-primary" onclick="filterSelection('countryDenmark')">Denmark</button>
+            <button class="btn btn-primary" onclick="filterSelection('countrySpain')">Spain</button>
+            <button class="btn btn-primary" onclick="filterSelection('countryPortugal')">Portugal</button>
+            <button class="btn btn-primary" onclick="filterSelection('countryFrance')">France</button>
+            <button class="btn btn-primary" onclick="filterSelection('countryNorway')">Norway</button>
+        </div>
+    </div>
+    
+    <div class="container" id="spotguide">
         <div class='row'>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
@@ -169,7 +192,27 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
+
+<section id="tableFilter">
+    <div id="filterContainer">
+
+        
+    </div>
+</section>
+
+<section class="footer">
+    <div class="container">
+        <div class='row'>
+            <div class='col-xs-12 col-md-4'>
+                <h1>Footer</h1>
+            </div>
+        </div>   
+    </div>
+
+</section>
+
 
 <!---
     SCRIPTS AND STYLESHEETS
