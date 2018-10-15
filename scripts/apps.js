@@ -57,9 +57,22 @@ if (loginAttempts == 0){
 // CREATE NEW USER
 
 
+// Show Selected filter
 
+///Define Variables --> TODO Adjust ID in html so that there are 3 filters instead of 1
+var inputFilter= document.getElementById("sidebarbtn");
+var spotGuide = document.getElementById("spotguide");
 
-
-
-  
-
+///Create Function
+function filterSelection(element,spotGuide) {
+    var element = element.className;
+    var spotGuide = document.getElementsByClassName("spot-info");
+    for (i = 0; i < spotGuide.length; i++) {
+        if(element.indexOf(spotGuide[i]) ==-1) {
+            element.className += " " + spotGuide[i];
+        }
+    console.log(element);
+    console.log(spotGuide);
+    }
+}
+// Remove none selected filters
