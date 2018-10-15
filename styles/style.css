@@ -67,28 +67,7 @@ h3{
 }
 h4{
     font-size: 15px;
-}/*
- #username{
-    position: relative;
-    top: -80px;
-    right: -720px;
- }
-
- #password{
-    position: relative;
-    top: -150px;
-    right: -900px; 
- }
-
- #submit{
-    position: relative;
-    top: -195px;
-    right: -940px; 
- }
- .login-text{
-     width: 150px;
-     height: 20px;
- }*/
+}
 
 #sidebar{
     display: table-cell;
@@ -124,3 +103,20 @@ h4{
     top:9.5px;
     right: -100px;
 }
+.overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1; 
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  .container:hover .overlay {
+    opacity: 1;
+  }
