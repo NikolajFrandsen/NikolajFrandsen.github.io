@@ -19,7 +19,7 @@
     <!-- HEADER & LOGIN FUNCTION -->
     
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" id="navbar">
         <div class='col-xs-12 col-md-4'>
             <h1>SpotFinder</h1>
             <div class="topnav">
@@ -28,19 +28,22 @@
                 <a class="btn btn-primary" href="#Blog">Blog</a>
                 <a class="btn btn-primary" href="#Profile">Profile</a>       
             </div>
-            <div class="login-padding login-display-topleft">
-                <h3 id="Username">Username</h3>
-                    <input type="text" name="username" id="username" class="login-text"/>
-                <h3 id="Password">Password</h3>
-                    <input type="password" name="password" id="password" class="login-text"/>
-                    <input class= "btn btn-success" type="button" value="Login" name="submit" id="submit"></button>
-                    <a id="notauser" class="btn btn-primary-outline" href="createUser.html">Not a user yet?</a>
-                <div>
-                    <span id="loginResult"></span>
-                </div>
-            </div>
         </div>
     </div>
+    <div class="row" id="logginn">
+                <h3 id="Username">Username</h3>
+                    <input type="text" name="username" id="username" class="login-text" style="width: 100px"/>      
+    </div> 
+    <div class="row" id="passwordbox">
+            <h3 id="Password">Password</h3>
+            <input type="password" name="password" id="password" class="login-text" style="width: 100px"/>
+            <input class= "btn btn-success" type="button" value="Login" name="submit" id="submit"></button>
+            <a id="notauser" class="btn btn-primary-outline" href="createUser.html">Not a user yet?</a>
+        <div>
+            <span id="loginResult"></span>
+        </div> 
+
+    </div> 
 </div><br>
 
 <!-- LOCAL STORAGE EXAMPLE

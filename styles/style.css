@@ -16,9 +16,31 @@ h1{
 }
 h3{
     font-size: 11;
-    color: black;
+    color:black;
     margin-left: 10px;
 }
+#notauser{
+    position: relative;
+    color: white;
+    top: 30px;
+    right: 320px;
+ }
+#Username{
+    font-size: 18px;
+    position: relative;
+    color: white;
+}
+#Password{
+    font-size: 18px;
+    position: relative;
+    color: white; 
+}
+#loginResult{
+    position: relative;
+    top: 0px;
+    right: -50px; 
+    color: white
+ }
 .btn{
     margin-left: 1%;
     margin-bottom: 2;
@@ -45,50 +67,29 @@ h3{
 }
 h4{
     font-size: 15px;
-}
-#Username{
-    position: relative;
-    top: -80px;
-    right: -720px;
-    color: white
- }
+}/*
  #username{
     position: relative;
     top: -80px;
     right: -720px;
  }
- #Password{
-    position: relative;
-    top: -145px;
-    right: -900px;
-    color: white 
- }
+
  #password{
     position: relative;
     top: -150px;
     right: -900px; 
  }
- #notauser{
-    position: relative;
-    top: -153px;
-    right: -858px; 
-    color: white
- }
+
  #submit{
     position: relative;
     top: -195px;
     right: -940px; 
  }
- #loginResult{
-    position: relative;
-    top: -227px;
-    right: -1175px; 
-    color: white
- }
  .login-text{
      width: 150px;
      height: 20px;
- }
+ }*/
+
 #sidebar{
     display: table-cell;
     width: 15%;
@@ -103,4 +104,23 @@ h4{
     margin-bottom: 10px;
     width: 60%;
     margin-left: 10px;
+}
+#navbar{
+    display: table-cell;
+    width: 25%;
+    vertical-align: top;
+}
+#logginn{
+    display: table-cell;
+    width: 50%;
+    position:absolute;
+    top:10px;
+    right: 20px;
+}
+#passwordbox{
+    display: table-cell;
+    width: 50%;
+    position:absolute;
+    top:9.5px;
+    right: -100px;
 }
