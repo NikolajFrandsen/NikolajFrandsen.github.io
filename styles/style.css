@@ -50,37 +50,41 @@ h4{
 #Username{
     position: relative;
     top: -80px;
-    right: -706px;
+    right: -720px;
+    color: white
  }
  #username{
     position: relative;
-    top: -115px;
-    right: -850px;
+    top: -80px;
+    right: -720px;
  }
  #Password{
     position: relative;
-    top: -140px;
-    right: -1050px; 
+    top: -145px;
+    right: -900px;
+    color: white 
  }
  #password{
     position: relative;
-    top: -183px;
-    right: -1180px; 
+    top: -150px;
+    right: -900px; 
  }
  #notauser{
     position: relative;
     top: -153px;
-    right: -460px; 
+    right: -858px; 
+    color: white
  }
  #submit{
     position: relative;
     top: -195px;
-    right: -1180px; 
+    right: -940px; 
  }
  #loginResult{
     position: relative;
-    top: -195px;
+    top: -227px;
     right: -1175px; 
+    color: white
  }
  .login-text{
      width: 150px;
