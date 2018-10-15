@@ -90,3 +90,16 @@ h4{
      width: 150px;
      height: 20px;
  }
+#sidebar{
+    display: table-cell;
+    width: 15%;
+    vertical-align: top;
+}
+#spotguide{
+    display: table-cell;
+    width: 85%;
+    vertical-align: top;
+}
+#sidebarbtn{
+    margin-bottom: 10px;
+}

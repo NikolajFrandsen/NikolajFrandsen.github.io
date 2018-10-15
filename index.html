@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-</div>
+</div><br>
 
 <!-- LOCAL STORAGE EXAMPLE
 <script>
@@ -71,25 +71,27 @@
 
 <section id="showcase">
     <div class="container-filter" id="sidebar">
-            <button class="btn btn-primary active" onclick="filterSelection('levelShowAll')">Show All</button>
+            <button class="btn btn-primary active" id="sidebarbtn" onclick="filterSelection('levelShowAll')">Show All</button><br>
 
             <!-- Level filter -->
-            <button class="btn btn-primary" onclick="filterSelection('levelBeginner')">Beginner</button>
-            <button class="btn btn-primary" onclick="filterSelection('levelIntermediate')">Intermediate</button>
-            <button class="btn btn-primary" onclick="filterSelection('levelPro')">Pro</button>
+            <h3>Level</h3>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('levelBeginner')">Beginner</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('levelIntermediate')">Intermediate</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('levelPro')">Pro</button><br>
     
             <!-- Spot Type Filter -->
-            
-            <button class="btn btn-primary" onclick="filterSelection('typeBeachBreak')">Beach Break</button>
-            <button class="btn btn-primary" onclick="filterSelection('typeReefBreak')">Reef Break</button>
-            <button class="btn btn-primary" onclick="filterSelection('typePointBreak')">Point break</button>
+            <h3>Break Type</h3>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('typeBeachBreak')">Beach Break</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('typeReefBreak')">Reef Break</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('typePointBreak')">Point break</button><br>
     
             <!-- Country Filter -->
-            <button class="btn btn-primary" onclick="filterSelection('countryDenmark')">Denmark</button>
-            <button class="btn btn-primary" onclick="filterSelection('countrySpain')">Spain</button>
-            <button class="btn btn-primary" onclick="filterSelection('countryPortugal')">Portugal</button>
-            <button class="btn btn-primary" onclick="filterSelection('countryFrance')">France</button>
-            <button class="btn btn-primary" onclick="filterSelection('countryNorway')">Norway</button>
+            <h3>Country</h3>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('countryDenmark')">Denmark</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('countrySpain')">Spain</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('countryPortugal')">Portugal</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('countryFrance')">France</button><br>
+            <button class="btn btn-primary" id="sidebarbtn" onclick="filterSelection('countryNorway')">Norway</button><br>
         </div>
     </div>
     
@@ -203,7 +205,7 @@
 </section>
 
 <section class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <div class='row'>
             <div class='col-xs-12 col-md-4'>
                 <h1>Footer</h1>
