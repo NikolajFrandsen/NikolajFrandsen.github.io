@@ -1,29 +1,88 @@
-span {
-    font-family: 'Times New Roman';
-    font-size: 15px;
-    color: red;
-}
-body {
-    background-color: rgba(255,255,255, 1);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+body{
+    background-color: #EAE7DC;
 }
 h1{
-    font-family: 'Montserrat','Helvetica Neue','Helvetica Neue Regular','Helvetica Regular',Helvetica,Arial,sans-serif;;
-    letter-spacing: 2px;
+    color: white;
+}
+.header{
+    font-family: 'Courier New', Courier, monospace;
+}
+.container-fluid{
+    height: 100px;
+    background-color: #2A5B84;
+    margin: auto;
+    text-align: left; 
+    padding: auto;
+}
 }
 h3{
-    margin: 5px;
+    font-size: 10px;
+    color: white;
 }
-.topnav{
-    background-color: #f0f0f0;
-    overflow: hidden;
 }
-.topnav a{
-    float: left;
-    color: #2b2b2b;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+.btn{
+    margin-left: 1%;
+    margin-bottom: 2;
 }
+.container{
+    position: relative;
+}
+.picture{
+    height: 200px;
+    width: 100%;
+    position: relative;
+    padding-bottom: 1%;
+}
+.col-xs-12, .col-md-4{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    position: relative;
+    border-right: 1px solid rgba(128,128,128,.3);
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgba(128, 128, 128, 0.3);
+}
+h4{
+    font-size: 15px;
+}
+#Username{
+    position: relative;
+    top: -80px;
+    right: -706px;
+ }
+ #username{
+    position: relative;
+    top: -115px;
+    right: -850px;
+ }
+ #Password{
+    position: relative;
+    top: -140px;
+    right: -1050px; 
+ }
+ #password{
+    position: relative;
+    top: -183px;
+    right: -1180px; 
+ }
+ #notauser{
+    position: relative;
+    top: -153px;
+    right: -460px; 
+ }
+ #submit{
+    position: relative;
+    top: -195px;
+    right: -1180px; 
+ }
+ #loginResult{
+    position: relative;
+    top: -195px;
+    right: -1175px; 
+ }
+ .login-text{
+     width: 150px;
+     height: 20px;
+ }

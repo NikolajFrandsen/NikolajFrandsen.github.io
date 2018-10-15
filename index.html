@@ -4,29 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <title>Login function</title>
+
+        <!-- BOOTSTRAP AND JS -->
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!-- -->
+    
+        <!-- DATABASES -->
+        <script src="scripts/homepageDB.js"></script>
 </head>
 <body>
 
-<h1>SPOTFINDER</h1>
-
-<div class="topnav">
-    <a class="active" href="#Home">Home</a>
-    <a href="#Spots">Spots</a>
-    <a href="#Blog">Blog</a>
-    <a href="#Profile">Profile</a>       
+    <!-- HEADER & LOGIN FUNCTION -->
+    
+    <div class="container-fluid">
+        <h1>SpotFinder</h1>
+    <div class='col-xs-12 col-md-4'>
+        <div class="topnav">
+            <a class="btn btn-primary" href="#Home">Home</a>
+            <a class="btn btn-primary" href="#Spots">Spots</a>
+            <a class="btn btn-primary" href="#Blog">Blog</a>
+            <a class="btn btn-primary" href="#Profile">Profile</a>       
+        </div>
+        <div class="login-padding login-display-topleft">
+            <h3 id="Username">Username</h3>
+                <input type="text" name="username" id="username" class="login-text"/>
+            <h3 id="Password">Password</h3>
+                <input type="password" name="password" id="password" class="login-text"/>
+                <input class= "btn btn-success" type="button" value="Login" name="submit" id="submit"></button>
+                <a id="notauser" class="btn btn-danger" href="createUser.html">Not a user yet?</a>
+            <div>
+                <span id="loginResult"></span>
+            </div>
+        </div>
+    </div>
 </div>
 
-<h3>Username</h3>
-<input type="text" name="username" id="username"/>
+<!-- LOCAL STORAGE EXAMPLE
+<script>
+    const user = [
+        {
+            username: 'Nikolaj',
+            password: '12345'
+        },
+        {
+            username: 'Miks',
+            password: '123'
+        }
+    ]
+    
+    let userString = JSON.stringify(user)
 
-<h3>Password</h3>
-<input type="password" name="password" id="password" />
+    localStorage.setItem('User', userString)
 
-<input type="button" value="Login" name="submit" id="submit"></button>
+    let newUser = localStorage.getItem('User')
+    
+    console.log(JSON.parse(newUser))    
 
-<span id="loginResult"></span>
+    console.log(localStorage.getItem(newUser))
 
-<a href="createUser.html">Not a user yet? Click here </a>
+</script>
+-->
+
+<!-- Coloumns (Inspired by Geomatic) -->
+
+<section id="showcase">
+    <div class="container">
+        <div class='row'>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                        <div class="spot-image">
+                                <img class="picture" src="img/klitmoeller.jpg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Klitmoeller, Denmark</h4>
+                            </div>
+                        </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/ribeira.jpg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Ericeira, Ribeira De Ilhas, Portugal</h4>
+                            </div>
+                        </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/hossegor.jpeg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Hossegor, France</h4>
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/zarautz.jpg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Zarautz, Spain</h4>
+                            </div>
+                        </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/cascais.jpg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Cascais, Portugal</h4>
+                            </div>
+                        </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                <img class="picture" src="img/peniche.jpg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Peniche, Portugal</h4>
+                            </div>
+                    </div>
+            </div>
+        </div>
+            <div class='row'>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/lofoten.jpeg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Lofoten, Norway</h4>
+                            </div>
+                        </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/nazare.jpg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Nazaré, Portugal</h4>
+                            </div>
+                        </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                            <div class="spot-image">
+                                    <img class="picture" src="img/vorupoer.jpeg" alt="">
+                            </div>
+                            <div class="spot-info">
+                                <h4>Vorupoer, Denmark</h4>
+                            </div>
+                        </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!---
     SCRIPTS AND STYLESHEETS
