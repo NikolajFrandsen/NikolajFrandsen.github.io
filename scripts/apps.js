@@ -226,4 +226,3 @@ var norwayCountry = document.getElementById("countryNorway");
 
 //Highlight pressed button Not sure what i did but it works....
 
-
