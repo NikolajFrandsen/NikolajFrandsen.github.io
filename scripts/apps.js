@@ -108,6 +108,7 @@ function registerUser() {
 // Show All --> work on the show all function, definerer spots? + loop funktion --> denne funktion virker ikke :(
 var showAll = document.getElementById("showAll");
 spots = document.getElementsByClassName('spot-info');
+
 showAll.addEventListener("click", function (obj) {
     //spots = document.getElementsByClassName('spot-info');
     filterValueAll = this.getAttribute("data-value")
@@ -229,3 +230,4 @@ for (var i = 0; i < buttonClass.length; i++) {
         var current = document.getElementsByClassName("classNames");
     })
 };
+
