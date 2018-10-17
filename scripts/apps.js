@@ -338,10 +338,10 @@ norwayCountry.addEventListener("click", function (norFunc) {
 // creating an input, which registers everytime a key is pressed and put that value into an array, 
 //so that you can apply multiple filters in the filtering section
 
-// Empty list
+// Empty list allowing you to push the ID of latest clicks into an array
 var emptyList = [];
 
-//List allowing you to push the ID of the three latest clicks into an array
+//This function will store the three latest clicks in an array and remove the oldest once a new click has been made.
 var clickedButton = document.getElementsByClassName("btnfilter btn-primary");
 for (var i = 0; i < clickedButton.length; i++) {
     clickedButton[i].addEventListener("click", function (buttonFunc) {
@@ -357,33 +357,47 @@ for (var i = 0; i < clickedButton.length; i++) {
 };
 
 // Filtering for Level this works but won't allow other filters :(
-/* for (var b=0; b<clickedButton.length;b++) {clickedButton[b].addEventListener("click", function (clickFunc) {
+/* for (var b=0; b<clickedButton.length;b++) {
+    clickedButton[b].addEventListener("click", function () {
+        var filterValue2 = this.getAttribute("data-value");
+
+        for (i = 0; i < spots.length; i++) {
+            var el = spots[i].getElementsByTagName("article")[0];
+            var testInt = el.getAttribute('data-level');
+            spots[i].style.display = "";
+            pictureClass[i].style.display = "";
+            console.log(testInt);
+                if (testInt != filterValue2) {
+                    spots[i].style.display = "none";
+                    pictureClass[i].style.display = "none";
+                    //document.getElementById("button").innerHTML = "dfnsdjf"
+                }
+        }
+        return emptyList.push(this.id);
+    })
+}; */
+
+
+ //Next level filtering for ReefType
+
+ //Advanced filtering for countries
+ //var clickedButton2 = document.getElementsByClassName("btnfilter btn-primary");
+ /* for (var b=0; b<clickedButton2.length;b++) {clickedButton2[b].addEventListener("click", function (click2Func) {
     var filterValue2 = this.getAttribute("data-value");
 
     for (i = 0; i < spots.length; i++) {
         var el = spots[i].getElementsByTagName("article")[0];
-        var testInt = el.getAttribute('data-level');
+        var testInt = el.getAttribute('data-country');
         spots[i].style.display = "";
         pictureClass[i].style.display = "";
         console.log(testInt); {
             if (testInt != filterValue2) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                //document.getElementById("button").innerHTML = "dfnsdjf"
             }
         }
     }
     return emptyList.push(this.id);
 })
 };
- */
-
-/* clickedButton[0].addEventListener("click", function(butFunc) {
-    for (var i=0; i < emptyList.length;i++) {
-        if (emptyList.length===5) {
-            emptyList.splice((i--), 1)
-        }
-    }
-    console.log("Hello World");
-});
  */
