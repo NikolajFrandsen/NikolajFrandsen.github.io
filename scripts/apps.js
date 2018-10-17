@@ -141,6 +141,7 @@ beginnerLevel.addEventListener("click", function (beginFunc) {
             pictureClass[i].style.display = "none";
         }
     }
+    return emptyList.push(this.id);
 });
 
 var intermediateLevel = document.getElementById("levelIntermediate");
@@ -156,10 +157,10 @@ intermediateLevel.addEventListener("click", function (intFunc) {
             if (testInt != filterValue2) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                //document.getElementById("button").innerHTML = "dfnsdjf"
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 var proLevel = document.getElementById("levelPro");
@@ -178,6 +179,7 @@ proLevel.addEventListener("click", function (proFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 //Define break type
@@ -197,6 +199,7 @@ breakBeach.addEventListener("click", function (beachFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 var breakReef = document.getElementById("reefBreak");
@@ -214,6 +217,7 @@ breakReef.addEventListener("click", function (reefFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 var breakPoint = document.getElementById("pointBreak");
@@ -231,6 +235,7 @@ breakPoint.addEventListener("click", function (beachFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 
@@ -252,6 +257,7 @@ denmarkCountry.addEventListener("click", function (dkFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 var spainCountry = document.getElementById("countrySpain");
@@ -270,6 +276,7 @@ spainCountry.addEventListener("click", function (spaFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 var portugalCountry = document.getElementById("countryPortugal");
@@ -287,6 +294,7 @@ portugalCountry.addEventListener("click", function (porFunc) {
             }
         }
     }
+    return emptyList.push(this.id);
 });
 
 var franceCountry = document.getElementById("countryFrance");
@@ -322,7 +330,7 @@ norwayCountry.addEventListener("click", function (norFunc) {
             }
         }
     }
-    console.log(this.id)
+    console.log(this.id);
     return emptyList.push(this.id);
 });
 
@@ -330,12 +338,66 @@ norwayCountry.addEventListener("click", function (norFunc) {
 // creating an input, which registers everytime a key is pressed and put that value into an array, 
 //so that you can apply multiple filters in the filtering section
 
+// Empty list allowing you to push the ID of latest clicks into an array
 var emptyList = [];
 
-function filteringList() {
-    for (var i = 0; i < emptyList.length; i++) {
-        if (emptyList[i].value === 5) {
-            emptyList.splice(i--, 1);
+//This function will store the three latest clicks in an array and remove the oldest once a new click has been made.
+var clickedButton = document.getElementsByClassName("btnfilter btn-primary");
+for (var i = 0; i < clickedButton.length; i++) {
+    clickedButton[i].addEventListener("click", function (buttonFunc) {
+        for (c = 0; c < clickedButton.length; c++) {
+            if (emptyList.length == 4) {
+                emptyList.splice(c--, 1)
+            }
+            console.log(emptyList);
+            return console.log(clickedButton[c]);
+        }
+    })
+    
+};
+
+// Filtering for Level this works but won't allow other filters :(
+/* for (var b=0; b<clickedButton.length;b++) {
+    clickedButton[b].addEventListener("click", function () {
+        var filterValue2 = this.getAttribute("data-value");
+
+        for (i = 0; i < spots.length; i++) {
+            var el = spots[i].getElementsByTagName("article")[0];
+            var testInt = el.getAttribute('data-level');
+            spots[i].style.display = "";
+            pictureClass[i].style.display = "";
+            console.log(testInt);
+                if (testInt != filterValue2) {
+                    spots[i].style.display = "none";
+                    pictureClass[i].style.display = "none";
+                    //document.getElementById("button").innerHTML = "dfnsdjf"
+                }
+        }
+        return emptyList.push(this.id);
+    })
+}; */
+
+
+ //Next level filtering for ReefType
+
+ //Advanced filtering for countries
+ //var clickedButton2 = document.getElementsByClassName("btnfilter btn-primary");
+ /* for (var b=0; b<clickedButton2.length;b++) {clickedButton2[b].addEventListener("click", function (click2Func) {
+    var filterValue2 = this.getAttribute("data-value");
+
+    for (i = 0; i < spots.length; i++) {
+        var el = spots[i].getElementsByTagName("article")[0];
+        var testInt = el.getAttribute('data-country');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = "";
+        console.log(testInt); {
+            if (testInt != filterValue2) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
         }
     }
+    return emptyList.push(this.id);
+})
 };
+ */
