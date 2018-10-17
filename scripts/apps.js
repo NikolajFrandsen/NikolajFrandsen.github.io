@@ -122,30 +122,35 @@ var beginnerLevel = document.getElementById("levelBeginner");
 var intermediateLevel = document.getElementById("levelIntermediate");
 var pictureClass = document.getElementsByClassName('picture');
 
-beginnerLevel.addEventListener("click", function(begin) {
+beginnerLevel.addEventListener("click", function(beginFunc) {
+    // Access the class
     var spots=document.getElementsByClassName("spot-info");
+    // Access buttons data value
     var filterBegin = this.getAttribute("data-value");
 
     for(i=0; i<spots.length;i++) {
+        // Defining the article which obtains the data about our locations
         var elBegin=spots[i].getElementsByTagName("article")[0];
+        // Getting the surfing level data so we can create an if statement to match button pressed with surf level for each location
         var testBegin = elBegin.getAttribute('data-level');
         if(testBegin != filterBegin) {
+            //If the test is not equal to our filter, then the function will hide the spot.
             spots[i].style.display="none";
             pictureClass[i].style.display="none";
         }
     }
 });
 
-intermediateLevel.addEventListener("click", function(that) { 
+intermediateLevel.addEventListener("click", function(intFunc) { 
     var spots = document.getElementsByClassName("spot-info");
 
     var filterValue2 = this.getAttribute("data-value");
 
     for (i=0; i < spots.length;i++) {
         var el = spots[i].getElementsByTagName("article")[0];
-        var test2 = el.getAttribute('data-level');
-        console.log(test2); {
-            if(test2 != filterValue2) {
+        var testInt = el.getAttribute('data-level');
+        console.log(testInt); {
+            if(testInt != filterValue2) {
                 spots[i].style.display="none";
                 pictureClass[i].style.display="none";
             }
@@ -161,8 +166,8 @@ proLevel.addEventListener("click", function(proFunc) {
     
     for(i=0;i < spots.length;i++) {
         var el2=spots[i].getElementsByTagName("article")[0];
-        var test3=el2.getAttribute('data-level'); {
-            if(test3 != filterValue3) {
+        var testPro=el2.getAttribute('data-level'); {
+            if(testPro != filterValue3) {
                 spots[i].style.display="none";
                 pictureClass[i].style.display="none";
             }
