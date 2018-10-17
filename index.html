@@ -71,67 +71,84 @@
     <div id="map"></div>
         <script>
         function myMap() {
-            var location = {lat: 52.520, lng: 13.404};
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 3, 
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: {lat:39.355, lng:-9.381}, 
-                map: map,
-                title: 'Peniche, Portugal'
+            // Map options
+            var options = {
+                zoom: 3,
+                center: {lat: 57.72093, lng: 10.58394}
+            }
+            // New map
+            var map = new 
+            google.maps.Map(document.getElementById('map'), options);
+
+            addMarker({
+                coordinates: {lat:39.355,lng:-9.381},
+                content:'Supertubos',
+                txt: 'Peniche, Portugal'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:57.081, lng:8.545}, 
-                map: map,
-                title: 'Klitmoeller, Denmark'
+             addMarker({
+                coordinates: {lat:38.988, lng:-9.421},
+                content:'World Surf Reserve',
+                txt: 'Ericeira, Portugal'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:38.988, lng:-9.421}, 
-                map: map,
-                title: 'Ericeira, Portugal'
+            addMarker({
+                coordinates: {lat:38.697, lng:-9.421},
+                content:'Consistent surf close to Lisbon',
+                txt: 'Cascais, Portugal'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:43.284, lng:-2.169}, 
-                map: map, 
-                title: 'Zarautz, Spain'
+            addMarker({
+                coordinates: {lat:68.333, lng:14.666},
+                content:'Ice cold surf in the north',
+                txt: 'Lofoten, Norway'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:38.697, lng:-9.421}, 
-                map: map,
-                title: 'Cascais, Portugal'
+            addMarker({
+                coordinates: {lat:56.953, lng:8.382},
+                content:'Cold water surf on the west coast of Jutland',
+                txt: 'Voruper, Denmark'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:68.333, lng:14.666}, 
-                map: map,
-                title: 'Lofoten, Norway'
+            addMarker({
+                coordinates: {lat:43.664, lng:-1.397},
+                content:'Here you find the biggest wave in the world',
+                txt: 'Nazaré, Portugal'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:39.602, lng:-9.068}, 
-                map: map,
-                title: 'Cascais, Portugal'
-            });
-            var marker = new google.maps.Marker({
-                position: {lat:56.953, lng:8.382}, 
-                map: map,
-                title: 'Vorupoer, Denmark'
+            addMarker({
+                coordinates: {lat:57.081, lng:8.545},
+                content:'Cold Hawaii',
+                txt: 'Klitmoeller, Denmark'
             });
 
-            var marker = new google.maps.Marker({
-                position: {lat:43.664, lng:-1.397}, 
-                map: map,
-                title: 'Nazaré, Portugal '
+            addMarker({
+                coordinates: {lat:43.284, lng:-2.169},
+                content: 'Spaaaaain',
+                txt: 'Zarautz, Spain'
+            });
+
+            //Add marker function
+            function addMarker(info){
+                var marker = new google.maps.Marker({
+                position:info.coordinates,
+                map:map,
+                title: info.txt,
+                // Adding custom markers
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
             });
             
-        }
-        </script>
+            // Adding the description of the spots
+            var infoWindow = new google.maps.InfoWindow({
+                content:info.content
+            });
 
+            marker.addListener('click', function(){
+                infoWindow.open(map,marker);
+            });   
+        }
+    }
+        </script>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzeXsBKu4xO1p7cq_DI1Ss3bv8rrR55aI&callback=myMap"></script>
         <link rel="stylesheet" href="styles/mapStyle.css">
