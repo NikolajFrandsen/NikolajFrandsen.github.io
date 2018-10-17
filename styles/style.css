@@ -104,3 +104,7 @@ h4{
     width: 60%;
     margin-left: 10px;
 }
+
+.show{
+    display:block;
+}
