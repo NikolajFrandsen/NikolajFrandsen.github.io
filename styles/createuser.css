@@ -25,3 +25,9 @@ h3{
 #submit{
     height: 25px;
 }
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}

@@ -1,4 +1,17 @@
-
+document.getElementById("genericHeader").innerHTML = 
+    "<span id='headerText'>SpotFinder</span>"
+    + "<span id='headerSubtext'>Find your next holiday location </span>";
+document.getElementById("genericNav").innerHTML = 
+    "<ul id='navLinks'>"
+    + "<li><a href='#'> Home </a></li>"
+    +"<li><a href='#'> Blog </a></li>"
+    +"<li><a href='#'> Spots </a></li>"
+    +"<li><a href='#'> About </a></li>"
+    + "</ul>";
+document.getElementById('genericFooter').innerHTML=
+    "<span id='headerText'>Want to learn more about us?</span>"
+    + "<span id='headerSubtext'>Contact us</span>";
+    
 // FRONT PAGE: LOGIN 
 
 var submit = document.getElementById('submit');
@@ -28,7 +41,7 @@ submit.onclick = function () {
     var password = document.getElementById("password").value
     for (i = 0; i < objPeople.length; i++) {
         if (username == objPeople[i].username && password == objPeople[i].password) {
-            window.location.replace("loggedin.html");
+            window.location.replace("index.html");
             // 'Return true' helps to only return the successful login and leave out the other results.
             return true;
         }
@@ -38,7 +51,7 @@ submit.onclick = function () {
     // Our login function should also have a counter. 
     // We move our counter out of the 'for' loop, but keep it inside the function. 
 
-    if (loginAttempts == 0) {
+    if (loginAttempts == 1) {
         document.getElementById("loginResult").innerHTML = "No more login attempts";
     } else {
         loginAttempts--;
