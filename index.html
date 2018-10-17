@@ -18,9 +18,9 @@
 
 <header id="genericHeader"></header>
 <nav id="genericNav"></nav>
-    <!-- HEADER & LOGIN FUNCTION -->
     
-<div class="container-fluid">
+<!-- HEADER & LOGIN FUNCTION
+    <div class="container-fluid">
     <div class="row" id="logginn">
                 <h3 id="Username">Username</h3>
                     <input type="text" name="username" id="username" class="login-text" style="width: 100px"/>      
@@ -35,7 +35,7 @@
         </div>
 
     </div> 
-</div><br>
+</div><br> -->
 
 <!-- LOCAL STORAGE EXAMPLE
 <script>
@@ -140,27 +140,28 @@
 
 <section id="showcase">
     <div class="container-filter" id="sidebar">
-            <button class="btn btn-primary active" id="showAll">Show All</button><br>
+            <button class="btnfilter btn-primary active" id="showAll">Show All</button><br>
 
             <!-- Level filter -->
             <h3>Level</h3>
-            <button class="btn btn-primary" id="levelBeginner" data-value="Beginner">Beginner</button><br>
-            <button class="btn btn-primary" id="levelIntermediate" data-value="Intermediate">Intermediate</button><br>
-            <button class="btn btn-primary" id="levelPro" data-value="Pro">Pro</button><br>
+            <button class="btnfilter btn-primary" id="levelBeginner" data-value="Beginner">Beginner</button><br>
+            <button class="btnfilter btn-primary" id="levelIntermediate" data-value="Intermediate">Intermediate</button><br>
+            <button class="btnfilter btn-primary" id="levelPro" data-value="Pro">Pro</button><br>
     
             <!-- Spot Type Filter -->
             <h3>Break Type</h3>
-            <button class="btn btn-primary" id="beachBreak" data-value="Beach Break">Beach Break</button><br>
-            <button class="btn btn-primary" id="reefBreak" data-value="Reef Break">Reef Break</button><br>
-            <button class="btn btn-primary" id="pointBreak" data-value="Point Break">Point Break</button><br>
-    
+
+            <button class="btnfilter btn-primary" id="beachBreak" data-value="Beach Break">Beach Break</button><br>
+            <button class="btnfilter btn-primary" id="reefBreak" data-value="Reef Break">Reef Break</button><br>
+            <button class="btnfilter btn-primary" id="pointBreak" data-value="Point Break">Point Break</button><br>    
+            
             <!-- Country Filter -->
             <h3>Country</h3>
-            <button class="btn btn-primary" id="countryDenmark" data-value="Denmark">Denmark</button><br>
-            <button class="btn btn-primary" id="countrySpain" data-value="Spain">Spain</button><br>
-            <button class="btn btn-primary" id="countryPortugal" data-value="Portugal">Portugal</button><br>
-            <button class="btn btn-primary" id="countryFrance" data-value="France">France</button><br>
-            <button class="btn btn-primary" id="countryNorway" data-value="Norway">Norway</button><br>
+            <button class="btnfilter btn-primary" id="countryDenmark" data-value="Denmark">Denmark</button><br>
+            <button class="btnfilter btn-primary" id="countrySpain" data-value="Spain">Spain</button><br>
+            <button class="btnfilter btn-primary" id="countryPortugal" data-value="Portugal">Portugal</button><br>
+            <button class="btnfilter btn-primary" id="countryFrance" data-value="France">France</button><br>
+            <button class="btnfilter btn-primary" id="countryNorway" data-value="Norway">Norway</button><br>
         </div>
     </div>
     
@@ -169,151 +170,195 @@
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
                         <div class="spot-image">
+                            <div class="pic-container">
                                 <img class="picture" src="img/klitmoeller.jpg" alt="">
-                                <button class="bucketlist-btn">Add to bucketlist</button>
-                            </div>
-                            <div class="spot-info">
-                                <h4>Klitmoeller, Denmark</h4>
-                                <article hidden
-                                    id="klitmoeller"
-                                    data-level="Pro"
-                                    data-reefType="Beach Break"
-                                    data-country="Denmark">
-                                </article>
+                                <div class="middle">
+                                <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button>
+                                </div>
                             </div>
                         </div>
+                        <div class="spot-info">
+                            <h4>Klitmoeller, Denmark</h4>
+                            <article hidden
+                                id="klitmoeller"
+                                data-level="Pro"
+                                data-reefType="Beach Break"
+                                data-country="Denmark">
+                            </article>
+                        </div>
+                    </div>
             </div>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/ribeira.jpg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Ericeira, Ribeira De Ilhas, Portugal</h4>
-                                <article hidden
-                                    id="ericeira"
-                                    data-level="Beginner"
-                                    data-reefType="Beach Break"
-                                    data-country="Portugal">
-                                </article>
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/ribeira.jpg" alt="">
+                                <div class="middle">
+                                        <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
                             </div>
                         </div>
+                        <div class="spot-info">
+                            <h4>Ericeira, Ribeira De Ilhas, Portugal</h4>
+                            <article hidden
+                                id="ericeira"
+                                data-level="Beginner"
+                                data-reefType="Beach Break"
+                                data-country="Portugal">
+                            </article>
+                        </div>
+                    </div>
             </div>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/hossegor.jpeg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Hossegor, France</h4>
-                                <article hidden
-                                    id="hossegor"
-                                    data-level="Intermediate"
-                                    data-reefType="Beach Break"
-                                    data-country="France">
-                                </article>
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/hossegor.jpeg" alt="">
+                                <div class="middle">
+                                        <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
                             </div>
                         </div>
+                        <div class="spot-info">
+                            <h4>Hossegor, France</h4>
+                            <article hidden
+                                id="hossegor"
+                                data-level="Intermediate"
+                                data-reefType="Beach Break"
+                                data-country="France">
+                            </article>
+                        </div>
+                    </div>
             </div>
         </div>
         <div class='row'>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/zarautz.jpg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Zarautz, Spain</h4>
-                                <article hidden
-                                    id="zarautz"
-                                    data-level="Pro"
-                                    data-reefType="Beach Break"
-                                    data-country="Spain">
-                                </article>
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/zarautz.jpg" alt="">
+                                <div class="middle">
+                                        <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
                             </div>
                         </div>
-            </div>
-            <div class='col-xs-12 col-md-4'>
-                    <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/cascais.jpg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Cascais, Portugal</h4>
-                                <article hidden
-                                    id="cascais"
-                                    data-level="Intermediate"
-                                    data-reefType="Beach Break"
-                                    data-country="Portugal">
-                                </article>
-                            </div>
+                        <div class="spot-info">
+                            <h4>Zarautz, Spain</h4>
+                            <article hidden
+                                id="zarautz"
+                                data-level="Pro"
+                                data-reefType="Beach Break"
+                                data-country="Spain">
+                            </article>
                         </div>
-            </div>
-            <div class='col-xs-12 col-md-4'>
-                    <div class="spot-card">
-                            <div class="spot-image">
-                                <img class="picture" src="img/peniche.jpg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Peniche, Portugal</h4>
-                                <article hidden
-                                    id="peniche"
-                                    data-level="Pro"
-                                    data-reefType="Beach Break"
-                                    data-country="Portugal">
-                                </article>
-                            </div>
                     </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/cascais.jpg" alt="">
+                                <div class="middle">
+                                        <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spot-info">
+                            <h4>Cascais, Portugal</h4>
+                            <article hidden
+                                id="cascais"
+                                data-level="Intermediate"
+                                data-reefType="Beach Break"
+                                data-country="Portugal">
+                            </article>
+                        </div>
+                    </div>
+            </div>
+            <div class='col-xs-12 col-md-4'>
+                    <div class="spot-card">
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/peniche.jpg" alt="">
+                                <div class="middle">
+                                    <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spot-info">
+                            <h4>Peniche, Portugal</h4>
+                            <article hidden
+                                id="peniche"
+                                data-level="Pro"
+                                data-reefType="Beach Break"
+                                data-country="Portugal">
+                            </article>
+                        </div>
+                </div>
             </div>
         </div>
             <div class='row'>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/lofoten.jpeg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Lofoten, Norway</h4>
-                                <article hidden
-                                    id="loftoten"
-                                    data-level="Beginner"
-                                    data-reefType="Beach Break"
-                                    data-country="Norway">
-                                </article>
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/lofoten.jpeg" alt="">
+                                <div class="middle">
+                                    <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
                             </div>
                         </div>
+                        <div class="spot-info">
+                            <h4>Lofoten, Norway</h4>
+                            <article hidden
+                                id="loftoten"
+                                data-level="Beginner"
+                                data-reefType="Beach Break"
+                                data-country="Norway">
+                            </article>
+                        </div>
+                    </div>
             </div>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/nazare.jpg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Nazaré, Portugal</h4>
-                                <article hidden
-                                    id="nazare"
-                                    data-level="Pro"
-                                    data-reefType="Beach Break"
-                                    data-country="Portugal">
-                                </article>
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/nazare.jpg" alt="">
+                                <div class="middle">
+                                    <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
                             </div>
                         </div>
+                        <div class="spot-info">
+                            <h4>Nazaré, Portugal</h4>
+                            <article hidden
+                                id="nazare"
+                                data-level="Pro"
+                                data-reefType="Beach Break"
+                                data-country="Portugal">
+                            </article>
+                        </div>
+                    </div>
             </div>
             <div class='col-xs-12 col-md-4'>
                     <div class="spot-card">
-                            <div class="spot-image">
-                                    <img class="picture" src="img/vorupoer.jpeg" alt="">
-                            </div>
-                            <div class="spot-info">
-                                <h4>Vorupoer, Denmark</h4>
-                                <article hidden
-                                    id="vorupoer"
-                                    data-level="Beginner"
-                                    data-reefType="Beach Break"
-                                    data-country="Denmark">
-                                </article>
+                        <div class="spot-image">
+                            <div class="pic-container">
+                                <img class="picture" src="img/vorupoer.jpeg" alt="">
+                                <div class="middle">
+                                    <button class="bucketlist-btn" id="addToBucket">Add to bucketlist</button> 
+                                </div>
                             </div>
                         </div>
+                        <div class="spot-info">
+                            <h4>Vorupoer, Denmark</h4>
+                            <article hidden
+                                id="vorupoer"
+                                data-level="Beginner"
+                                data-reefType="Beach Break"
+                                data-country="Denmark">
+                            </article>
+                        </div>
+                    </div>
             </div>
             </div>
         </div>
@@ -329,16 +374,6 @@
 </section>
 
 <footer id="genericFooter"></footer>
-<!-- <section class="footer">
-    <div class="container-fluid">
-        <div class='row'>
-            <div class='col-xs-12 col-md-4'>
-                <h1>Footer</h1>
-            </div>
-        </div>   
-    </div> -->
-
-</section>
 
 
 <!---
