@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bucket List</title>
+</head>
+<body>
+
+    <header id="genericHeader"></header>
+    <nav id="genericNav"></nav>
+<h1>Bucket List</h1>
+
+<p>See your bucket list below</p>
+<p id="showbucketlist"></p>
+<script>
+    document.getElementById('showbucketlist').innerHTML = JSON.parse(localStorage.getItem('bucketItems'))
+</script>
+
+<footer id="genericFooter"></footer>
+
+<script src="scripts/createuser.js"></script>
+<script src="scripts/apps.js"></script>
+<link rel="stylesheet" href="styles/stylebucketlist.css">
+
+</body>
+</html>

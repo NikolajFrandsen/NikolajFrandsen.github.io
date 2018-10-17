@@ -1,103 +1,93 @@
-// // CREATE NEW USER
+// FRONT PAGE: LOGIN 
 
-// function registerUser(){
+var submit = document.getElementById('submit');
+var resultSpan = document.getElementById('loginResult');
 
-//     //Retrieve information from input fields
+var objPeople = [
+    {
+        username: "Frederik",
+        password: "123"
+    },
+    {
+        username: "Martin",
+        password: "1234"
+    },
+    {
+        username: "Nikolaj",
+        password: "12345"
+    }
+]
 
-//     var registerUser = document.getElementById("newUser").value
-//     var registerPassword = document.getElementById("newPassword").value
-    
-//     //Create new variable which we can push to our object. 
-    
-//     var newUser = {
-//         username: registerUser,
-//         password: registerPassword
-//     }
-
-//     // Make sure the username is not taken. 
-
-//     for (i = 0; i < objPeople.length;i++){
-//         if(registerUser == objPeople[i].username){
-//             alert("that username is already in use")
-//             return
-
-//     //Check password length
-
-//     } else if (registerPassword.length < 8) {
-//             alert("That password is too short")
-//             return
-//         }
-//     }
-
-//     // Push new user to our object in the top.  
-
-//     objPeople.push(newUser)
-//     console.log(objPeople)
-// }
-
-// var addToLocalStorageObject = function (objPeople, newUser, value){
-//     var existing = localStorage.getItem(objPeople);
-//     existing = existing ? JSON.parse(existing) : {};
-//     existing[newUser] = value; 
-//     localStorage.setItem(objPeople, JSON.stringify(existing));
-
-// };
-
-// // var existing = localStorage.getItem(objPeople);
-// // existing = existing ? JSON.parse(existing):{};
-// // existing['username'] = newUser;
-// // localStorage.setItem('objPeople', JSON.stringify(existing));
+var loginAttempts = 3;
 
 
+//LOGIN FUNCTION 
+submit.onclick = function () {
+    var username = document.getElementById("username").value
+    var password = document.getElementById("password").value
+    for (i = 0; i < objPeople.length; i++) {
+        if (username == objPeople[i].username && password == objPeople[i].password) {
+            window.location.replace("index.html");
+            // 'Return true' helps to only return the successful login and leave out the other results.
+            return true;
+        }
+        console.log("Button is clicked");
+    };
 
+    // Our login function should also have a counter. 
+    // We move our counter out of the 'for' loop, but keep it inside the function. 
 
-// var txt = '{"spot":"Klitmoeller", "country":"Denmark"}'
-// var txt = [
-//     {
-//         spot: "klitmoeller",
-//         country: 'Denmark'
-//     },
-//     {
-//         spot: "lofoten",
-//         country: "Norway"
-//     }
-// ]
+    if (loginAttempts == 1) {
+        document.getElementById("loginResult").innerHTML = "No more login attempts";
+    } else {
+        loginAttempts--;
+        document.getElementById("loginResult").innerHTML = ("Only" + " " + loginAttempts + " " + "login attempts left");
+        if (loginAttempts == 0) {
+            document.getElementById(username).disabled = true;
+            document.getElementById(password).disabled = true;
+            submit.disabled = true;
+        }
+        return false;
+    }
+};
 
-// let txtString = JSON.stringify(txt)
-// localStorage.setItem('bucketItem', txtString)
+// CREATE NEW USER
+function registerUser() {
 
-// let newItem = localStorage.getItem('bucketItem')
-// console.log(JSON.parse(newItem))
-// console.log(localStorage.getItem(newItem))
-// document.getElementById("bucketlisttest").innerHTML = newItem.spot;
+    //Retrieve information from input fields
 
-// var obj = JSON.parse(txt);
-// document.getElementById("bucketlisttest").innerHTML = obj.spot + ", " + obj.country;
+    var registerUser = document.getElementById("newUser").value
+    var registerPassword = document.getElementById("newPassword").value
 
-// var json = emptyBucket, 
-// data = JSON.parse("json", function(key, value){
-//     if (key !== "" && typeof value == 'object'){
-//         Object.keys.foreach(function(name){
-//             if (name.slice(-1) !== '2'){
-//                 delete vale[name];
-//             }
-//         });
-//     }
-//     return value;
-// });
-// document.body.appendChild(document.createTextNode(JSON.stringify(data)));
+    //Create new variable which we can push to our object. 
 
-// document.getElementById('showbucketlist').innerHTML = localStorage.getItem('bucketItems')
+    var newUser = {
+        username: registerUser,
+        password: registerPassword
+    }
 
-// var emptyBucket = [];
-// var klitmoellerBucketList = document.getElementById("Klitmoeller")
+    // Make sure the username is not taken
 
-// klitmoellerBucketList.addEventListener("click", function(bucketList){
-//     // console.log(this.id);
-//     emptyBucket.push(this.id)
-//     localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
-//     // console.log(emptyBucket)
-// });
+    for (i = 0; i < objPeople.length; i++) {
+        if (registerUser == objPeople[i].username) {
+            document.getElementById("checkUsername").innerHTML = ("That username already exists")
+            return
 
-// document.getElementById('showbucketlist').innerHTML = localStorage.getItem('bucketItems')
+            //Check password length
+
+        } else if (registerPassword.length < 8) {
+            document.getElementById("checkPassword").innerHTML = ("Your password is too short")
+            return
+        }
+    }
+
+    // Push new user to our object in the top
+
+    objPeople.push(newUser)
+
+    localStorage.setItem("users", JSON.stringify(objPeople));
+
+    console.log(objPeople)
+}
+
 
