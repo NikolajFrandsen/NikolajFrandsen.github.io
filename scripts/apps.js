@@ -4,7 +4,6 @@
 var submit = document.getElementById('submit');
 var resultSpan = document.getElementById('loginResult');
 
-
 var objPeople = [
     {
         username: "Frederik",
@@ -20,8 +19,7 @@ var objPeople = [
     }
 ]
 
-// 0 also counts as an attempt so in this way the user only has 3 attempts to login
-var loginAttempts = 2;
+var loginAttempts = 3;
 
 
 //LOGIN FUNCTION 
@@ -54,24 +52,59 @@ submit.onclick = function () {
     }
 };
 
-
 // CREATE NEW USER
+function registerUser(){
+
+    //Retrieve information from input fields
+
+    var registerUser = document.getElementById("newUser").value
+    var registerPassword = document.getElementById("newPassword").value
+    
+    //Create new variable which we can push to our object. 
+    
+    var newUser = {
+        username: registerUser,
+        password: registerPassword
+    }
+
+    // Make sure the username is not taken
+
+    for (i = 0; i < objPeople.length; i++){
+        if(registerUser == objPeople[i].username){
+                document.getElementById("checkUsername").innerHTML =("That username already exists")
+                return
+
+    //Check password length
+
+            } else if (registerPassword.length < 8) {
+                document.getElementById("checkPassword").innerHTML =("Your password is too short")
+                return
+            }
+        }
+
+    // Push new user to our object in the top
+
+    objPeople.push(newUser)
+
+    // localStorage.setItem("users", JSON.stringify(objPeople));
+    
+    console.log(objPeople)
+}
 
 //Filter funktion --> TODO den filterer kun manuelt, kan dette automatiseres, lave for de kategorier --> lige nu er det kun level 
 // Show All --> work on the show all function, definerer spots? + loop funktion --> denne funktion virker ikke :(
-var showAll = document.getElementById("showAll");
-showAll.addEventListener("click", function (obj) {
-    spots = document.getElementsByClassName('spot-info');
-    filterValueAll= this.getAttribute("data-value")
-    x = document.getElementsByClassName('picture');
-    for (i=0;i<spots.length;i++) {
-        if(x[i]) {
-            x[i].style.display="";
-            spots[i].style.display="";
+    var showAll = document.getElementById("showAll");
+    showAll.addEventListener("click", function (obj) {
+        spots = document.getElementsByClassName('spot-info');
+        filterValueAll= this.getAttribute("data-value")
+        x = document.getElementsByClassName('picture');
+        for (i=0;i<spots.length;i++) {
+            if(x[i]) {
+                x[i].style.display="";
+                spots[i].style.display="";
+            }
         }
-    }
-});
-
+    });
 var beginnerLevel = document.getElementById("levelBeginner");
 var intermediateLevel = document.getElementById("levelIntermediate");
 var pictureClass = document.getElementsByClassName('picture');
