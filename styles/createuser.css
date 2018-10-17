@@ -1,10 +1,15 @@
 body{
-    background-color: #EAE7DC;
+    background-image: url(https://image.redbull.com/rbcom/010/2016-12-09/1331833831900_3/0012/0/147/0/2994/4272/1500/1/mick-fanning-surfing-sunset-aerial-northern-lights-lofoten-norway.jpg);
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
 }
-.container-fluid{
+.container{
     height: 100px;
-    background-color: #2A5B84;
-    margin: auto;
+    margin-left: 35%;
     text-align: left; 
     padding: auto;
 }
@@ -12,7 +17,8 @@ h1{
     color: white;
 }
 h2{
-    font-size:
+    font-size:;
+    color: white;
 }
 h3{
     font-size: 20px;
@@ -22,12 +28,11 @@ h3{
     position: relative;
     margin-top: 15%;
 }
-#submit{
-    height: 25px;
-}
-
 .login-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+}
+.row{
+  text-align:
 }

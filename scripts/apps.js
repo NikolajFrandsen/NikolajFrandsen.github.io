@@ -1,17 +1,17 @@
-document.getElementById("genericHeader").innerHTML = 
+document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
     + "<span id='headerSubtext'>Find your next holiday location </span>";
-document.getElementById("genericNav").innerHTML = 
+document.getElementById("genericNav").innerHTML =
     "<ul id='navLinks'>"
     + "<li><a href='#'> Home </a></li>"
-    +"<li><a href='#'> Blog </a></li>"
-    +"<li><a href='#'> Spots </a></li>"
-    +"<li><a href='#'> About </a></li>"
+    + "<li><a href='#'> Blog </a></li>"
+    + "<li><a href='#'> Spots </a></li>"
+    + "<li><a href='#'> About </a></li>"
     + "</ul>";
-document.getElementById('genericFooter').innerHTML=
+document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
     + "<span id='headerSubtext'>Contact us</span>";
-    
+
 // FRONT PAGE: LOGIN 
 
 var submit = document.getElementById('submit');
@@ -107,7 +107,7 @@ function registerUser() {
 //Filter funktion --> TODO den filterer kun manuelt, kan dette automatiseres, lave for de kategorier --> lige nu er det kun level 
 // Show All --> work on the show all function, definerer spots? + loop funktion --> denne funktion virker ikke :(
 var showAll = document.getElementById("showAll");
-spots = document.getElementsByClassName('spot-info');
+var spots = document.getElementsByClassName('spot-info');
 
 showAll.addEventListener("click", function (obj) {
     //spots = document.getElementsByClassName('spot-info');
@@ -120,9 +120,9 @@ showAll.addEventListener("click", function (obj) {
         }
     }
 });
-var beginnerLevel = document.getElementById("levelBeginner");
-var intermediateLevel = document.getElementById("levelIntermediate");
+// The Filters -- it is the samme loop for every filter
 var pictureClass = document.getElementsByClassName('picture');
+var beginnerLevel = document.getElementById("levelBeginner");
 
 beginnerLevel.addEventListener("click", function (beginFunc) {
     // Access buttons data value
@@ -143,6 +143,7 @@ beginnerLevel.addEventListener("click", function (beginFunc) {
     }
 });
 
+var intermediateLevel = document.getElementById("levelIntermediate");
 intermediateLevel.addEventListener("click", function (intFunc) {
     var filterValue2 = this.getAttribute("data-value");
 
@@ -179,17 +180,18 @@ proLevel.addEventListener("click", function (proFunc) {
     }
 });
 
-//This doesn't work remember to readjust the code in the HTML 
-var charBreak = document.getElementById("breakChar");
+//Define break type
+var breakBeach = document.getElementById("beachBreak");
 
-charBreak.addEventListener("click", function (breakChar) {
-    var filterValue4 = this.getAttribute("data-value");
-    console.log(el3);
+breakBeach.addEventListener("click", function (beachFunc) {
+    var filterBeach = this.getAttribute("data-value");
 
     for (i = 0; i < spots.length; i++) {
-        var el3 = spots[i].getElementsByTagName("article")[1];
-        var testBreak = el3.getAttribute('data-level'); {
-            if (testBreak != filterValue4) {
+        var elBeach = spots[i].getElementsByTagName("article")[0];
+        var testBeach = elBeach.getAttribute('reefType');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testBeach != filterBeach) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
             }
@@ -197,17 +199,51 @@ charBreak.addEventListener("click", function (breakChar) {
     }
 });
 
-// Dette skal fixes
+var breakReef = document.getElementById("reefBreak");
+breakReef.addEventListener("click", function (reefFunc) {
+    var filterReef = this.getAttribute("reefType");
+
+    for (i = 0; i < spots.length; i++) {
+        var elReef = spots[i].getElementsByTagName("article")[0];
+        var testReef = elReef.getAttribute('reefType');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testReef != filterReef) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
+        }
+    }
+});
+
+var breakPoint = document.getElementById("pointBreak");
+breakPoint.addEventListener("click", function (beachFunc) {
+    var filterPoint = this.getAttribute("data-value");
+
+    for (i = 0; i < spots.length; i++) {
+        var elPoint = spots[i].getElementsByTagName("article")[0];
+        var testPoint = elPoint.getAttribute('data-country');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testPoint != filterPoint) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
+        }
+    }
+});
+
+
+//Define country filter
 
 var denmarkCountry = document.getElementById("countryDenmark");
 
 denmarkCountry.addEventListener("click", function (dkFunc) {
     var filterDk = this.getAttribute("data-value");
-    var spots = this.getElementsByClassName("spot-info");
 
     for (i = 0; i < spots.length; i++) {
-        var elDk = spots[i].getElementsByTagName("article")[2];
-        var testDk = elDk.getAttribute('data-level');
+        var elDk = spots[i].getElementsByTagName("article")[0];
+        var testDk = elDk.getAttribute('data-country');
         spots[i].style.display = "";
         pictureClass[i].style.display = ""; {
             if (testDk != filterDk) {
@@ -218,12 +254,88 @@ denmarkCountry.addEventListener("click", function (dkFunc) {
     }
 });
 
-//Define filter for each country --> currently it doesn't workfor each countr
 var spainCountry = document.getElementById("countrySpain");
+
+spainCountry.addEventListener("click", function (spaFunc) {
+    var filterSp = this.getAttribute("data-value");
+
+    for (i = 0; i < spots.length; i++) {
+        var elSp = spots[i].getElementsByTagName("article")[0];
+        var testSp = elSp.getAttribute('data-country');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testSp != filterSp) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
+        }
+    }
+});
+
 var portugalCountry = document.getElementById("countryPortugal");
+portugalCountry.addEventListener("click", function (porFunc) {
+    var filterPt = this.getAttribute("data-value");
+
+    for (i = 0; i < spots.length; i++) {
+        var elPt = spots[i].getElementsByTagName("article")[0];
+        var testPt = elPt.getAttribute('data-country');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testPt != filterPt) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
+        }
+    }
+});
+
 var franceCountry = document.getElementById("countryFrance");
+franceCountry.addEventListener("click", function (fraFunc) {
+    var filterFr = this.getAttribute("data-value");
+
+    for (i = 0; i < spots.length; i++) {
+        var elFr = spots[i].getElementsByTagName("article")[0];
+        var testFr = elFr.getAttribute('data-country');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testFr != filterFr) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
+        }
+    }
+    return emptyList.push(this.id);
+});
+
 var norwayCountry = document.getElementById("countryNorway");
+norwayCountry.addEventListener("click", function (norFunc) {
+    var filterNr = this.getAttribute("data-value");
 
-//Highlight pressed button Not sure what i did but it works....
+    for (i = 0; i < spots.length; i++) {
+        var elNr = spots[i].getElementsByTagName("article")[0];
+        var testNr = elNr.getAttribute('data-country');
+        spots[i].style.display = "";
+        pictureClass[i].style.display = ""; {
+            if (testNr != filterNr) {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+            }
+        }
+    }
+    console.log(this.id)
+    return emptyList.push(this.id);
+});
 
 
+// creating an input, which registers everytime a key is pressed and put that value into an array, 
+//so that you can apply multiple filters in the filtering section
+
+var emptyList = [];
+
+function filteringList() {
+    for (var i = 0; i < emptyList.length; i++) {
+        if (emptyList[i].value === 5) {
+            emptyList.splice(i--, 1);
+        }
+    }
+};
