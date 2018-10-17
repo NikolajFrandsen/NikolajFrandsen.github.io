@@ -99,7 +99,7 @@ function registerUser() {
 
     objPeople.push(newUser)
 
-    // localStorage.setItem("users", JSON.stringify(objPeople));
+    localStorage.setItem("users", JSON.stringify(objPeople));
 
     console.log(objPeople)
 }
