@@ -5,7 +5,7 @@ document.getElementById("genericNav").innerHTML =
     "<ul id='navLinks'>"
     + "<li><a href='#'> Home </a></li>"
     + "<li><a href='#'> Blog </a></li>"
-    + "<li><a href='#'> Spots </a></li>"
+    + "<li><a href='loggedin.html'> Bucket List </a></li>"
     + "<li><a href='#'> About </a></li>"
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =

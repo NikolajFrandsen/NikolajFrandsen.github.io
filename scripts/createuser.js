@@ -52,24 +52,24 @@
 
 
 // var txt = '{"spot":"Klitmoeller", "country":"Denmark"}'
-var txt = [
-    {
-        spot: "klitmoeller",
-        country: 'Denmark'
-    },
-    {
-        spot: "lofoten",
-        country: "Norway"
-    }
-]
+// var txt = [
+//     {
+//         spot: "klitmoeller",
+//         country: 'Denmark'
+//     },
+//     {
+//         spot: "lofoten",
+//         country: "Norway"
+//     }
+// ]
 
-let txtString = JSON.stringify(txt)
-localStorage.setItem('bucketItem', txtString)
+// let txtString = JSON.stringify(txt)
+// localStorage.setItem('bucketItem', txtString)
 
-let newItem = localStorage.getItem('bucketItem')
-console.log(JSON.parse(newItem))
-console.log(localStorage.getItem(newItem))
-document.getElementById("bucketlisttest").innerHTML = newItem.spot;
+// let newItem = localStorage.getItem('bucketItem')
+// console.log(JSON.parse(newItem))
+// console.log(localStorage.getItem(newItem))
+// document.getElementById("bucketlisttest").innerHTML = newItem.spot;
 
 // var obj = JSON.parse(txt);
 // document.getElementById("bucketlisttest").innerHTML = obj.spot + ", " + obj.country;
@@ -86,3 +86,18 @@ document.getElementById("bucketlisttest").innerHTML = newItem.spot;
 //     return value;
 // });
 // document.body.appendChild(document.createTextNode(JSON.stringify(data)));
+
+// document.getElementById('showbucketlist').innerHTML = localStorage.getItem('bucketItems')
+
+// var emptyBucket = [];
+// var klitmoellerBucketList = document.getElementById("Klitmoeller")
+
+// klitmoellerBucketList.addEventListener("click", function(bucketList){
+//     // console.log(this.id);
+//     emptyBucket.push(this.id)
+//     localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
+//     // console.log(emptyBucket)
+// });
+
+// document.getElementById('showbucketlist').innerHTML = localStorage.getItem('bucketItems')
+
