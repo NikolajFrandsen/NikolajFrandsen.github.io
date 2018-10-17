@@ -108,6 +108,7 @@ function registerUser() {
 // Show All --> work on the show all function, definerer spots? + loop funktion --> denne funktion virker ikke :(
 var showAll = document.getElementById("showAll");
 spots = document.getElementsByClassName('spot-info');
+
 showAll.addEventListener("click", function (obj) {
     //spots = document.getElementsByClassName('spot-info');
     filterValueAll = this.getAttribute("data-value")
@@ -196,6 +197,8 @@ charBreak.addEventListener("click", function (breakChar) {
     }
 });
 
+// Dette skal fixes
+
 var denmarkCountry = document.getElementById("countryDenmark");
 
 denmarkCountry.addEventListener("click", function (dkFunc) {
@@ -221,11 +224,6 @@ var portugalCountry = document.getElementById("countryPortugal");
 var franceCountry = document.getElementById("countryFrance");
 var norwayCountry = document.getElementById("countryNorway");
 
-//Highlight pressed button
-var buttonHighlight = document.getElementsByClassName("container-filter");
-var buttonClass = buttonHighlight.document.getElementsByClassName("btn btn-primary");
-for (var i = 0; i < buttonClass.length; i++) {
-    buttonClass[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("classNames");
-    })
-};
+//Highlight pressed button Not sure what i did but it works....
+
+
