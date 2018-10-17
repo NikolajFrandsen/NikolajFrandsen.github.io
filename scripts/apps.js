@@ -302,9 +302,9 @@ franceCountry.addEventListener("click", function (fraFunc) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
             }
-            return emptyList.push(this.id);
         }
     }
+    return emptyList.push(this.id);
 });
 
 var norwayCountry = document.getElementById("countryNorway");
@@ -320,10 +320,10 @@ norwayCountry.addEventListener("click", function (norFunc) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
             }
-            console.log(this.id)
-            return emptyList.push(this.id);
         }
     }
+    console.log(this.id)
+    return emptyList.push(this.id);
 });
 
 
@@ -335,7 +335,7 @@ var emptyList = [];
 function filteringList() {
     for (var i = 0; i < emptyList.length; i++) {
         if (emptyList[i].value === 5) {
-            emptyList.splice(i, 1);
+            emptyList.splice(i--, 1);
         }
     }
 };
