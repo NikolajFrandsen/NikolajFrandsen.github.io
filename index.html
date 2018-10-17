@@ -13,16 +13,6 @@
     
         <!-- DATABASES -->
         <script src="scripts/homepageDB.js"></script>
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            #map {
-                height: 500px;
-                width: 100%;
-            }
-            </style>
 </head>
 <body>
 
@@ -84,8 +74,10 @@
 
 <!-- Coloumns (Inspired by Geomatic) -->
 
-<div id="map"></div>
+<!-- GOOGLE MAPS -->
 
+<section class="google-maps">
+    <div id="map"></div>
         <script>
         function myMap() {
             var location = {lat: 52.520, lng: 13.404};
@@ -135,7 +127,9 @@
 
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzeXsBKu4xO1p7cq_DI1Ss3bv8rrR55aI&callback=myMap"></script>
-    
+
+</section>
+      
 
 <section id="showcase">
     <div class="container-filter" id="sidebar">
