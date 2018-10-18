@@ -311,18 +311,23 @@ for (var i = 0; i < clickedButton.length; i++) {
 };
  */
 
-//BUCKET LIST FUNCTION --> Create a loop around it, this is not good with more items. 
+//BUCKET LIST FUNCTION
 
 var emptyBucket = [];
 
-var klitmoellerBucketList = document.getElementById("Klitmoeller")
+var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 
-klitmoellerBucketList.addEventListener("click", function(bucketList){
-    // console.log(this.id);
-    emptyBucket.push(this.id)
-    localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
-    // console.log(emptyBucket)
-});
+for (var i = 0; i < bucketButtonClicked.length; i++){
+    
+    bucketButtonClicked[i].addEventListener("click", function(bucketFunc){
+
+            emptyBucket.push(this.id)
+            localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
+            
+        console.log(emptyBucket);
+        return //console.log(bucketButtonClicked);
+    })
+}
 
 // This has been added directly in the HTML due to reading failure --> see more on loggedin.html
 // document.getElementById('showbucketlist').innerHTML = JSON.parse(localStorage.getItem('bucketItems'))
