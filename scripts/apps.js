@@ -398,11 +398,21 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
 var removeButton = document.getElementsByClassName("remove-btn");
 
 for (var i = 0; i < removeButton.length; i++) {
-    removeButton[i].addEventListener("click", function (removeFunc) {
-        var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
-   
+    removeButton[i].addEventListener("click", function (e) {
+        var index = getArrayIndex(this.id);
+        emptyBucket.splice(index,1);
+        localStorage.setItem('bucketItems', JSON.stringify(emptyBucket));
     })
 };
+
+function getArrayIndex(elementID){
+
+    for(i=0; i < emptyBucket.length; i++){
+        if(emptyBucket[i] == elementID){
+            return i;
+        }
+    }
+}
 
 // Reset-Clear bucketlist
 //////var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
