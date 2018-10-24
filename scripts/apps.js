@@ -10,7 +10,7 @@ document.getElementById("genericNav").innerHTML =
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
-    + " " + "<span id='headerSubtext'>Contact us</span>";
+    + "<span id='headerSubtext'>Contact us</span>";
 
 
 //Filter funktion --> TODO den filterer kun manuelt, kan dette automatiseres, lave for de kategorier --> lige nu er det kun level 
@@ -50,7 +50,12 @@ beginnerLevel.addEventListener("click", function (beginFunc) {
             pictureClass[i].style.display = "none";
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var intermediateLevel = document.getElementById("levelIntermediate");
@@ -69,7 +74,12 @@ intermediateLevel.addEventListener("click", function (intFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var proLevel = document.getElementById("levelPro");
@@ -88,7 +98,12 @@ proLevel.addEventListener("click", function (proFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 //Define break type
@@ -108,7 +123,12 @@ breakBeach.addEventListener("click", function (beachFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var breakReef = document.getElementById("reefBreak");
@@ -126,7 +146,12 @@ breakReef.addEventListener("click", function (reefFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var breakPoint = document.getElementById("pointBreak");
@@ -144,7 +169,12 @@ breakPoint.addEventListener("click", function (beachFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 
@@ -166,7 +196,12 @@ denmarkCountry.addEventListener("click", function (dkFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var spainCountry = document.getElementById("countrySpain");
@@ -185,7 +220,12 @@ spainCountry.addEventListener("click", function (spaFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var portugalCountry = document.getElementById("countryPortugal");
@@ -203,7 +243,12 @@ portugalCountry.addEventListener("click", function (porFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var franceCountry = document.getElementById("countryFrance");
@@ -221,7 +266,12 @@ franceCountry.addEventListener("click", function (fraFunc) {
             }
         }
     }
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 var norwayCountry = document.getElementById("countryNorway");
@@ -240,7 +290,12 @@ norwayCountry.addEventListener("click", function (norFunc) {
         }
     }
     console.log(this.id);
-    return emptyList.push(this.id);
+    if (emptyList.includes(this.id)) {
+        return false
+    }
+    else {
+        return emptyList.push(this.id)
+    };
 });
 
 
@@ -262,7 +317,7 @@ for (var i = 0; i < clickedButton.length; i++) {
             return console.log(clickedButton[c]);
         }
     })
-    
+
 };
 
 // Filtering for Level this works but won't allow other filters :(
@@ -287,47 +342,70 @@ for (var i = 0; i < clickedButton.length; i++) {
 }; */
 
 
- //Next level filtering for ReefType
+//Next level filtering for ReefType
 
- //Advanced filtering for countries
- //var clickedButton2 = document.getElementsByClassName("btnfilter btn-primary");
- /* for (var b=0; b<clickedButton2.length;b++) {clickedButton2[b].addEventListener("click", function (click2Func) {
-    var filterValue2 = this.getAttribute("data-value");
+//Advanced filtering for countries
+//var clickedButton2 = document.getElementsByClassName("btnfilter btn-primary");
+/* for (var b=0; b<clickedButton2.length;b++) {clickedButton2[b].addEventListener("click", function (click2Func) {
+   var filterValue2 = this.getAttribute("data-value");
 
-    for (i = 0; i < spots.length; i++) {
-        var el = spots[i].getElementsByTagName("article")[0];
-        var testInt = el.getAttribute('data-country');
-        spots[i].style.display = "";
-        pictureClass[i].style.display = "";
-        console.log(testInt); {
-            if (testInt != filterValue2) {
-                spots[i].style.display = "none";
-                pictureClass[i].style.display = "none";
-            }
-        }
-    }
-    return emptyList.push(this.id);
+   for (i = 0; i < spots.length; i++) {
+       var el = spots[i].getElementsByTagName("article")[0];
+       var testInt = el.getAttribute('data-country');
+       spots[i].style.display = "";
+       pictureClass[i].style.display = "";
+       console.log(testInt); {
+           if (testInt != filterValue2) {
+               spots[i].style.display = "none";
+               pictureClass[i].style.display = "none";
+           }
+       }
+   }
+   return emptyList.push(this.id);
 })
 };
- */
+*/
 
 //BUCKET LIST FUNCTION
 
-var emptyBucket = [];
+var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+
+if (emptyBucket == null) {
+    emptyBucket = [];
+} else {
+    var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+}
+
 
 var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 
-for (var i = 0; i < bucketButtonClicked.length; i++){
-    
-    bucketButtonClicked[i].addEventListener("click", function(bucketFunc){
+for (var i = 0; i < bucketButtonClicked.length; i++) {
 
+    bucketButtonClicked[i].addEventListener("click", function (bucketFunc) {
+        if (emptyBucket.includes(this.id)) {
+            return false
+        } else {
             emptyBucket.push(this.id)
             localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
-            
-        console.log(emptyBucket);
-        return //console.log(bucketButtonClicked);
+
+            console.log(emptyBucket);
+            return //console.log(bucketButtonClicked);
+        }
     })
 }
+
+// Remove Button
+var removeButton = document.getElementsByClassName("remove-btn");
+
+for (var i = 0; i < removeButton.length; i++) {
+    removeButton[i].addEventListener("click", function (removeFunc) {
+        var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+   
+    })
+};
+
+// Reset-Clear bucketlist
+//////var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
 
 // This has been added directly in the HTML due to reading failure --> see more on loggedin.html
 // document.getElementById('showbucketlist').innerHTML = JSON.parse(localStorage.getItem('bucketItems'))
