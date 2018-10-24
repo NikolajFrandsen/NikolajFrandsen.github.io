@@ -10,7 +10,7 @@ document.getElementById("genericNav").innerHTML =
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
-    + "<span id='headerSubtext'>Contact us</span>";
+    + " " + "<span id='headerSubtext'>Contact us</span>";
 
 
 //Filter funktion --> TODO den filterer kun manuelt, kan dette automatiseres, lave for de kategorier --> lige nu er det kun level 

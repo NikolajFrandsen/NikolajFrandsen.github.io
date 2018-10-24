@@ -12,6 +12,7 @@ body{
     margin-left: 35%;
     text-align: left; 
     padding: auto;
+    color: white; 
 }
 h1{
     color: white;
@@ -23,6 +24,7 @@ h2{
 h3{
     font-size: 20px;
     margin-top: 20px;
+    color: white;
 }
 .footer{
     position: relative;
@@ -35,4 +37,7 @@ h3{
 }
 .row{
   text-align:
+}
+#genericFooter {
+    color:white; 
 }
