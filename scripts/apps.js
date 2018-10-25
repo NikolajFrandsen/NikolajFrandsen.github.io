@@ -1,6 +1,6 @@
 document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
-    + "<span id='headerSubtext'>Find your next holiday location </span>";
+    + " " + "<span id='headerSubtext'>Find your next holiday location </span>";
 document.getElementById("genericNav").innerHTML =
     "<ul id='navLinks'>"
     + "<li><a href='index.html'> Home </a></li>"
@@ -10,7 +10,7 @@ document.getElementById("genericNav").innerHTML =
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
-    + "<span id='headerSubtext'>Contact us</span>";
+    + " " + "<span id='headerSubtext'>Contact us</span>";
 
 
 //Filter funktion --> TODO den filterer kun manuelt, kan dette automatiseres, lave for de kategorier --> lige nu er det kun level 
