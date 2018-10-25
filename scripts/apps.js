@@ -114,7 +114,7 @@ breakBeach.addEventListener("click", function (beachFunc) {
 
     for (i = 0; i < spots.length; i++) {
         var elBeach = spots[i].getElementsByTagName("article")[0];
-        var testBeach = elBeach.getAttribute('reefType');
+        var testBeach = elBeach.getAttribute('data-reefType');
         spots[i].style.display = "";
         pictureClass[i].style.display = ""; {
             if (testBeach != filterBeach) {
@@ -133,11 +133,11 @@ breakBeach.addEventListener("click", function (beachFunc) {
 
 var breakReef = document.getElementById("reefBreak");
 breakReef.addEventListener("click", function (reefFunc) {
-    var filterReef = this.getAttribute("reefType");
+    var filterReef = this.getAttribute("data-value");
 
     for (i = 0; i < spots.length; i++) {
         var elReef = spots[i].getElementsByTagName("article")[0];
-        var testReef = elReef.getAttribute('reefType');
+        var testReef = elReef.getAttribute('data-reefType');
         spots[i].style.display = "";
         pictureClass[i].style.display = ""; {
             if (testReef != filterReef) {
@@ -160,7 +160,7 @@ breakPoint.addEventListener("click", function (beachFunc) {
 
     for (i = 0; i < spots.length; i++) {
         var elPoint = spots[i].getElementsByTagName("article")[0];
-        var testPoint = elPoint.getAttribute('data-country');
+        var testPoint = elPoint.getAttribute('data-reefType');
         spots[i].style.display = "";
         pictureClass[i].style.display = ""; {
             if (testPoint != filterPoint) {
