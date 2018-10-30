@@ -30,7 +30,14 @@ showAll.addEventListener("click", function (obj) {
     }
 });
 // The Filters -- it is the samme loop for every filter
+
+// This variable is used for which photos to hide and show when filtering
 var pictureClass = document.getElementsByClassName('picture');
+// This one is used to hide the add to bucket list button when filtering
+var hideAdd = document.getElementsByClassName("bucketlist-btn");
+// This one is used to hide the remove from bucket list button when filtering
+var hideRemove = document.getElementsByClassName("remove-btn");
+
 var beginnerLevel = document.getElementById("levelBeginner");
 
 beginnerLevel.addEventListener("click", function (beginFunc) {
@@ -48,6 +55,8 @@ beginnerLevel.addEventListener("click", function (beginFunc) {
             //If the test is not equal to our filter, then the function will hide the spot.
             spots[i].style.display = "none";
             pictureClass[i].style.display = "none";
+            hideAdd[i].style.display = "none";
+            hideRemove[i].style.display = "none";
         }
     }
     if (emptyList.includes(this.id)) {
@@ -71,6 +80,8 @@ intermediateLevel.addEventListener("click", function (intFunc) {
             if (testInt != filterValue2) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -95,6 +106,8 @@ proLevel.addEventListener("click", function (proFunc) {
             if (testPro != filterValue3) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -120,6 +133,8 @@ breakBeach.addEventListener("click", function (beachFunc) {
             if (testBeach != filterBeach) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -143,6 +158,8 @@ breakReef.addEventListener("click", function (reefFunc) {
             if (testReef != filterReef) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -166,6 +183,8 @@ breakPoint.addEventListener("click", function (beachFunc) {
             if (testPoint != filterPoint) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -193,6 +212,8 @@ denmarkCountry.addEventListener("click", function (dkFunc) {
             if (testDk != filterDk) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -217,6 +238,8 @@ spainCountry.addEventListener("click", function (spaFunc) {
             if (testSp != filterSp) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -240,6 +263,8 @@ portugalCountry.addEventListener("click", function (porFunc) {
             if (testPt != filterPt) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -263,6 +288,8 @@ franceCountry.addEventListener("click", function (fraFunc) {
             if (testFr != filterFr) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -286,6 +313,8 @@ norwayCountry.addEventListener("click", function (norFunc) {
             if (testNr != filterNr) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
+                hideAdd[i].style.display = "none";
+                hideRemove[i].style.display = "none";
             }
         }
     }
@@ -400,15 +429,15 @@ var removeButton = document.getElementsByClassName("remove-btn");
 for (var i = 0; i < removeButton.length; i++) {
     removeButton[i].addEventListener("click", function (e) {
         var index = getArrayIndex(this.id);
-        emptyBucket.splice(index,1);
+        emptyBucket.splice(index, 1);
         localStorage.setItem('bucketItems', JSON.stringify(emptyBucket));
     })
 };
 
-function getArrayIndex(elementID){
+function getArrayIndex(elementID) {
 
-    for(i=0; i < emptyBucket.length; i++){
-        if(emptyBucket[i] == elementID){
+    for (i = 0; i < emptyBucket.length; i++) {
+        if (emptyBucket[i] == elementID) {
             return i;
         }
     }
