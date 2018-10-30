@@ -31,12 +31,10 @@ showAll.addEventListener("click", function (obj) {
 });
 // The Filters -- it is the samme loop for every filter
 
-// This variable is used for which photos to hide and show when filtering
+// This variable is used for which photos to hide and show when filtering 
 var pictureClass = document.getElementsByClassName('picture');
-// This one is used to hide the add to bucket list button when filtering
-var hideAdd = document.getElementsByClassName("bucketlist-btn");
-// This one is used to hide the remove from bucket list button when filtering
-var hideRemove = document.getElementsByClassName("remove-btn");
+// This one is used to hide the add and remove to/from bucket list button when filtering
+var hideBkt = document.getElementsByClassName("middle");
 
 var beginnerLevel = document.getElementById("levelBeginner");
 
@@ -51,12 +49,13 @@ beginnerLevel.addEventListener("click", function (beginFunc) {
         var testBegin = elBegin.getAttribute('data-level');
         spots[i].style.display = "";
         pictureClass[i].style.display = "";
+        hideBkt[i].style.display = "";
         if (testBegin != filterBegin) {
             //If the test is not equal to our filter, then the function will hide the spot.
             spots[i].style.display = "none";
             pictureClass[i].style.display = "none";
-            hideAdd[i].style.display = "none";
-            hideRemove[i].style.display = "none";
+            // **** THIS DOESNT WORK COMPLETELY HAS TO BE FIXED ****
+            hideBkt[i].style.display = "none";
         }
     }
     if (emptyList.includes(this.id)) {
@@ -76,12 +75,12 @@ intermediateLevel.addEventListener("click", function (intFunc) {
         var testInt = el.getAttribute('data-level');
         spots[i].style.display = "";
         pictureClass[i].style.display = "";
+        hideBkt[i].style.display = "";
         console.log(testInt); {
             if (testInt != filterValue2) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -102,12 +101,12 @@ proLevel.addEventListener("click", function (proFunc) {
         var el2 = spots[i].getElementsByTagName("article")[0];
         var testPro = el2.getAttribute('data-level');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testPro != filterValue3) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -129,12 +128,12 @@ breakBeach.addEventListener("click", function (beachFunc) {
         var elBeach = spots[i].getElementsByTagName("article")[0];
         var testBeach = elBeach.getAttribute('data-reefType');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testBeach != filterBeach) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -154,12 +153,12 @@ breakReef.addEventListener("click", function (reefFunc) {
         var elReef = spots[i].getElementsByTagName("article")[0];
         var testReef = elReef.getAttribute('data-reefType');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testReef != filterReef) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -179,12 +178,12 @@ breakPoint.addEventListener("click", function (beachFunc) {
         var elPoint = spots[i].getElementsByTagName("article")[0];
         var testPoint = elPoint.getAttribute('data-reefType');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testPoint != filterPoint) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -208,12 +207,12 @@ denmarkCountry.addEventListener("click", function (dkFunc) {
         var elDk = spots[i].getElementsByTagName("article")[0];
         var testDk = elDk.getAttribute('data-country');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testDk != filterDk) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -234,12 +233,12 @@ spainCountry.addEventListener("click", function (spaFunc) {
         var elSp = spots[i].getElementsByTagName("article")[0];
         var testSp = elSp.getAttribute('data-country');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testSp != filterSp) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -259,12 +258,12 @@ portugalCountry.addEventListener("click", function (porFunc) {
         var elPt = spots[i].getElementsByTagName("article")[0];
         var testPt = elPt.getAttribute('data-country');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testPt != filterPt) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -284,12 +283,12 @@ franceCountry.addEventListener("click", function (fraFunc) {
         var elFr = spots[i].getElementsByTagName("article")[0];
         var testFr = elFr.getAttribute('data-country');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testFr != filterFr) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
@@ -309,12 +308,12 @@ norwayCountry.addEventListener("click", function (norFunc) {
         var elNr = spots[i].getElementsByTagName("article")[0];
         var testNr = elNr.getAttribute('data-country');
         spots[i].style.display = "";
-        pictureClass[i].style.display = ""; {
+        pictureClass[i].style.display = "";
+        hideBkt[i].style.display = ""; {
             if (testNr != filterNr) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
-                hideAdd[i].style.display = "none";
-                hideRemove[i].style.display = "none";
+                hideBkt[i].style.display = "none";
             }
         }
     }
