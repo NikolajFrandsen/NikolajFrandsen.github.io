@@ -19,6 +19,34 @@ h3{
     color:black;
     margin-left: 10px;
 }
+#genericHeader{
+    height: 50px;
+    background-color: #2A5B84;
+    margin: auto;
+    text-align: left; 
+    padding: auto;
+}
+#genericNav{
+    height: 30px;
+    background-color: #2A5B84;
+    margin: auto;
+    text-align: left; 
+    padding: auto;
+}
+#headerText{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+#headerSubtext{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+a {
+    color: white;
+}
+a:hover{
+    color: green;
+}
 #notauser{
     position: relative;
     color: white;
@@ -46,7 +74,14 @@ h3{
     margin-bottom: 2;
 }
 .container{
-    position: relative;
+    position: absolute;
+    width: 100%;
+    right: 0;
+}
+.container-filter{
+    position: absolute;
+    width: 100%;
+    left: 0;
 }
 .picture{
     height: 200px;
@@ -131,3 +166,15 @@ h4{
       width: 80%;
       margin: 2px;
   }
+  /* #genericFooter{
+    height: 80px;
+    background-color: #2A5B84;
+    right: 0;
+    left: 0;
+    text-align: center; 
+    padding: auto;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+   */
