@@ -26,14 +26,20 @@
     document.getElementById('showbucketlist').innerHTML = JSON.parse(localStorage.getItem('bucketItems'))
 </script>
 
+<input type="button" onclick="CreateTableFromJSON()" value="Show bucket list"/>
+<p id="showData"></p>
+
+<table id="table1">
+</table>
+
 <footer id="genericFooter"></footer>
 
 
 <!---
     SCRIPTS AND STYLESHEETS
 -->
-
-<script src="scripts/createuser.js"></script>
+<script src="scripts/bl.js"></script>
+<!-- <script src="scripts/createuser.js"></script> -->
 <script src="scripts/apps.js"></script>
 
 </body>
