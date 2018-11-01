@@ -341,6 +341,7 @@ for (var i = 0; i < clickedButton.length; i++) {
             if (emptyList.length == 4) {
                 emptyList.splice(c--, 1)
             }
+            //*** Dette skal nok slettes */
             console.log(emptyList);
             return console.log(clickedButton[c]);
         }
@@ -397,7 +398,7 @@ for (var i = 0; i < clickedButton.length; i++) {
 //BUCKET LIST FUNCTION
 
 var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
-
+//Tjekker om der er nogle der er værdier i emptybucket hvis ikke lave den et tomt array og ellers så loader den de værdier
 if (emptyBucket == null) {
     emptyBucket = [];
 } else {
