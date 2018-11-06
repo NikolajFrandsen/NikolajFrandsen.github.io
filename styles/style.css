@@ -45,17 +45,12 @@ a:hover{
     margin-bottom: 2;
 }
 .container{
-    position: absolute;
+    position: relative;
     width: 100%;
     right: 0;
     padding: 0%;
     right: 4%;
-}
-.container-filter{
-    position: absolute;
-    width: 100%;
-    left: 0;
-    padding: auto;
+    left: 1%;
 }
 .picture{
     height: 200px;
