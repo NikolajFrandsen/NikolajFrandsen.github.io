@@ -42,7 +42,8 @@ submit.onclick = function () {
     } else {
         loginAttempts--;
         document.getElementById("loginResult").innerHTML = ("Only" + " " + loginAttempts + " " + "login attempts left");
-        if (loginAttempts == 0) {
+        if (loginAttempts == 1) {
+            //TODO: Den disabler ikke, dette skal fixes!!
             document.getElementById(username).disabled = true;
             document.getElementById(password).disabled = true;
             submit.disabled = true;
@@ -89,5 +90,5 @@ function registerUser() {
 
     console.log(objPeople)
 }
-
+//TODO: REPEAT PASSWORD skal implementeres
 
