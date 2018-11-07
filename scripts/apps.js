@@ -20,7 +20,7 @@ document.getElementById('genericFooter').innerHTML =
 
 
 
-// Show All, allows the user to see all spots -> This works seperately from the filter function below
+// *** Currently this doesn't work Show All, allows the user to see all spots -> This works seperately from the filter function below ***
 //Getting the button ID
 var showAll = document.getElementById("showAll");
 //Getting the spot info from the HTML
