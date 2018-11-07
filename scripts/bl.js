@@ -3,33 +3,19 @@
 
 function CreateTableFromJSON(){
     var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
-
-    var col = [];
-    for (var i = 0; i < emptyBucket.length; i++){
-        for (var key in emptyBucket[i]){
-            if (col.indexOf(key) === -1){
-                col.push(key);
-            }
-        }
-    }
-
     var table = document.createElement("table");
-
     var tr = table.insertRow(-1);
-
     // HEADER --> Remove brackets to see. 
     // for (var i = 0; i < col.length; i++){
     //     var th = document.createElement("th");
     //     th.innerHTML = col[i];
     //     tr.appendChild(th);
     // }
-
     for (var i = 0; i < emptyBucket.length; i++){
         tr = table.insertRow(-1);
         var tabCell = tr.insertCell(-1);
         tabCell.innerHTML = emptyBucket[i]
     }
-
     var divContainer = document.getElementById('showbucketlist');
     divContainer.innterHTML = "";
     divContainer.appendChild(table);
