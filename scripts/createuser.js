@@ -1,10 +1,12 @@
 // FRONT PAGE: LOGIN 
 
 class User {
-    constructor(firstname, lastname, username, password){
+    constructor(firstname, lastname, username, email, birthDate, password){
         this.firstname = firstname;
         this.lastname = lastname; 
         this.username = username;
+        this.email = email;
+        this.birthDate = birthDate;
         this.password = this.hashPassword(password);
         //this.lastAccess = null;
     }
@@ -26,6 +28,8 @@ class User {
             a = c!==0?a^c>>21:a;
           }
         }else {
+
+        //Throw an error if password input field is empty 
           throw new Error("The password is not valid");
         }
         return String(a);
@@ -38,9 +42,7 @@ var debug = 1;
 var objPeople = [];
 
 // Push a group of users to the empty array
-objPeople.push(new User("Frederik", "Hansen", "FH", "123"));
-objPeople.push(new User("Martin", "Kvammen", "MK", "1234"));
-objPeople.push(new User("Nikolaj", "Frandsen", "NF", "12345"));
+objPeople.push(new User("Frederik", "Hansen", "FH", "niko@niko.com", "10.05.1995", "123"));
 
 //Binding our submit button to a variable
 var submit = document.getElementById('submit');
@@ -116,17 +118,37 @@ var registerUser = document.getElementById('registerUser');
 registerUser.addEventListener("click", function(regUser){
 
 //Create bindings that retrieve information from input fields
-     var setFirstName = document.getElementById('firstname');
-     var setLastName = document.getElementById('lastname');
-     var setNewUsername = document.getElementById('newUsername');
-     var setNewPassword = document.getElementById('newPassword');
+     var setFirstName = document.getElementById('firstname').value
+     var setLastName = document.getElementById('lastname').value
+     var setNewUsername = document.getElementById('newUsername').value
+     var setEmail = document.getElementById('email').value
+     var setBirthDate = document.getElementById('calendar').value
+     var setNewPassword = document.getElementById('newPassword').value
 
     // Bind new users 
-    var users = new User(setFirstName, setLastName, setNewPassword, setNewUsername);
+    var users = new User(setFirstName, 
+                         setLastName,   
+                         setNewUsername, 
+                         setEmail, 
+                         setBirthDate, 
+                         setNewPassword);
+
+    for (i = 0; i < objPeople.length; i++) {
+        if (setNewUsername == objPeople[i].username) {
+            document.getElementById("checkUsername").innerHTML = ("That username already exists")
+            return
+
+        //Check password length
+        } else if (setNewPassword.length < 8) {
+            document.getElementById("checkPassword").innerHTML = ("Your password is too short")
+            return
+        }
+    }
 
    // Push new user to our object in the top
      objPeople.push(users);
 
+     // Stringify object because localStorage only accepts strings
      localStorage.setItem("users", JSON.stringify(users));
 
      console.log(objPeople)
