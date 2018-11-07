@@ -21,7 +21,7 @@
 <h1>Bucket List</h1>
 
 <p>See your bucket list below</p>
-<p id="showbucketlist"></p>
+<!-- <p id="showbucketlist"></p> -->
 <script>
     document.getElementById('showbucketlist').innerHTML = JSON.parse(localStorage.getItem('bucketItems'))
 </script>
@@ -29,7 +29,7 @@
 <input type="button" onclick="CreateTableFromJSON()" value="Show bucket list"/>
 <p id="showData"></p>
 
-<table id="table1">
+<table id="showbucketlist">
 </table>
 
 <footer id="genericFooter"></footer>
