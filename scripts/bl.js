@@ -1,6 +1,3 @@
-         
-
-
 function CreateTableFromJSON(){
     var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
     var table = document.createElement("table");
@@ -11,6 +8,8 @@ function CreateTableFromJSON(){
     //     th.innerHTML = col[i];
     //     tr.appendChild(th);
     // }
+
+    
     for (var i = 0; i < emptyBucket.length; i++){
         tr = table.insertRow(-1);
         var tabCell = tr.insertCell(-1);
@@ -20,6 +19,8 @@ function CreateTableFromJSON(){
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
 }
+
+
 
   
 
