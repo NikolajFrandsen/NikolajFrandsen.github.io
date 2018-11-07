@@ -29,6 +29,8 @@ h3{
 #headerText{
     font-family: 'Courier New', Courier, monospace;
     color: white;
+    font-size: 25px;
+    margin-right: 10px;
 }
 #headerSubtext{
     font-family: 'Courier New', Courier, monospace;
@@ -123,4 +125,7 @@ h4{
   }
   #genericFooter{
     height: 50px;
+  }
+  #navBtn{
+      padding: 3px;
   }

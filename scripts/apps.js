@@ -3,10 +3,10 @@ document.getElementById("genericHeader").innerHTML =
     + " " + "<span id='headerSubtext'>Find your next holiday location </span>";
 document.getElementById("genericNav").innerHTML =
     "<ul id='navLinks'>"
-    + "<a href='index.html'> Home </a>"
-    + "<a href='#'> Blog </a>"
-    + "<a href='bucketlist.html'> Bucket List </a>"
-    + "<a href='createuser.html'> Sign up / Login </a>"
+    + "<a id='navBtn' class='btn-primary' href='index.html'> Home </a>"
+    + "<a id='navBtn' class='btn-primary' href='#'> Blog </a>"
+    + "<a id='navBtn' class='btn-primary' href='bucketlist.html'> Bucket List </a>"
+    + "<a id='navBtn' class='btn-primary' href='createuser.html'> Sign up / Login </a>"
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
