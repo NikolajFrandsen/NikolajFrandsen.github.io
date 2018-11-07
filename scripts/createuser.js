@@ -52,6 +52,23 @@ submit.onclick = function () {
     }
 };
 
+
+ class User {
+     constructor(username, password, birthDay){
+         this.username = username;
+         this.password = password;
+         this.birthDay = birthDay;
+     }
+
+     calculateAge(){
+        
+     }
+ }
+
+
+ var adr = "Amagerbrogade 232, 21, 2300 KBH";
+ var adr = "Newmarket Str. 89, NH8983, New Hamshire"
+
 // CREATE NEW USER
 function registerUser() {
 
@@ -62,8 +79,10 @@ function registerUser() {
 
     //Create new variable which we can push to our object. 
 
+    var newUser = new User(registerUser, registerPassword);
+
     var newUser = {
-        username: registerUser,
+        userName: registerUser,
         password: registerPassword
     }
 
@@ -91,4 +110,3 @@ function registerUser() {
     console.log(objPeople)
 }
 //TODO: REPEAT PASSWORD skal implementeres
-
