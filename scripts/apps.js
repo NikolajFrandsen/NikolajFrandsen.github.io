@@ -1,3 +1,9 @@
+//Creating a generic header, navigation and footer which can be used across different HTML
+
+var level = "";
+var reef = "";
+var country = "";
+
 document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
     + " " + "<span id='headerSubtext'>Find your next holiday location </span>";
@@ -13,16 +19,20 @@ document.getElementById('genericFooter').innerHTML =
     + " " + "<span id='headerSubtext'>Contact us</span>";
 
 
-//Filter funktion --> TODO den filterer kun manuelt, kan dette automatiseres, lave for de kategorier --> lige nu er det kun level 
-// Show All --> work on the show all function, definerer spots? + loop funktion --> denne funktion virker ikke :(
+
+// Show All, allows the user to see all spots -> This works seperately from the filter function below
+//Getting the button ID
 var showAll = document.getElementById("showAll");
+//Getting the spot info from the HTML
 var spots = document.getElementsByClassName('spot-info');
 
 showAll.addEventListener("click", function (obj) {
     //spots = document.getElementsByClassName('spot-info');
     filterValueAll = this.getAttribute("data-value")
     x = document.getElementsByClassName('picture');
+    
     for (i = 0; i < spots.length; i++) {
+        //*****Currently it is build as an if statement, it is always x[i] and therefore it'll show all, maybe this can be optimized? ****
         if (x[i]) {
             x[i].style.display = "";
             spots[i].style.display = "";
@@ -37,7 +47,7 @@ var pictureClass = document.getElementsByClassName('picture');
 var hideBkt = document.getElementsByClassName("middle");
 
 
-//Create class and constructor structure
+//Create class and constructor structure which will be used for our filtering function
 class surfSpot {
     constructor(id, level, reefType, country) {
         this.id = id;
@@ -54,22 +64,49 @@ for (var b = 0; b < filterBtn.length; b++) {
     // Create event listener to make the buttons active
     filterBtn[b].addEventListener("click", function () {
         var whichBtn = this.getAttribute('data-value');
+        var whichType = this.getAttribute('data-type');
         //Looping through the different attributes
+
+        if(whichType == "level"){
+            level = whichBtn;
+        }else if(whichType == "reef"){
+            reef = whichBtn;
+        }else {
+            country = whichBtn;
+        }
+        
         for (i = 0; i < spots.length; i++) {
             var el = spots[i].getElementsByTagName("article")[0];
             var filterSurfspot = new surfSpot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
-            console.log(filterSurfspot);
-            console.log(whichBtn);
+            
             //Start by showing all the options, then later the no matched spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
             spots[i].style.display = "";
             pictureClass[i].style.display = "";
             hideBkt[i].style.display = "";
+        
             // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
-            if (filterSurfspot.level != whichBtn) {
+            if (filterSurfspot.level !== level && level !== "") {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
                 hideBkt[i].style.display = "none";
+                continue;
             }
+
+            // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
+            if (filterSurfspot.reefType !== reef && reef !== "") {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+                hideBkt[i].style.display = "none";
+                continue;                    
+            }
+            
+            // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
+            if (filterSurfspot.country != country && country !== "") {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+                hideBkt[i].style.display = "none";
+                continue;
+            }            
         }
     })
 };

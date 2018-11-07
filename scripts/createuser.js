@@ -1,32 +1,90 @@
 // FRONT PAGE: LOGIN 
 
+class User {
+    constructor(firstname, lastname, username, email, birthDate, password){
+        this.firstname = firstname;
+        this.lastname = lastname; 
+        this.username = username;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.password = this.hashPassword(password);
+        //this.lastAccess = null;
+    }
+
+    setLastAccess(){
+       this.lastAccess = Date.now();
+    }
+
+    // Hash function from Henrik's example
+    hashPassword(rawPassword){
+        var a = 1, c = 0, h, o;
+        if (rawPassword) {
+          a = 0;
+          /*jshint plusplus:false bitwise:false*/
+          for (h = rawPassword.length - 1; h >= 0; h--) {
+            o = rawPassword.charCodeAt(h);
+            a = (a<<6&268435455) + o + (o<<14);
+            c = a & 266338304;
+            a = c!==0?a^c>>21:a;
+          }
+        }else {
+
+        //Throw an error if password input field is empty 
+          throw new Error("The password is not valid");
+        }
+        return String(a);
+    }
+}
+
+var debug = 1; 
+
+// Setting empty array for users 
+var objPeople = [];
+
+// Push a group of users to the empty array
+objPeople.push(new User("Frederik", "Hansen", "FH", "niko@niko.com", "10.05.1995", "123"));
+
+//Binding our submit button to a variable
 var submit = document.getElementById('submit');
+
+// Show login result in span text 
 var resultSpan = document.getElementById('loginResult');
 
-var objPeople = [
-    {
-        username: "Frederik",
-        password: "123"
-    },
-    {
-        username: "Martin",
-        password: "1234"
-    },
-    {
-        username: "Nikolaj",
-        password: "12345"
-    }
-]
-
+//Set number of login attempts
 var loginAttempts = 3;
 
 
 //LOGIN FUNCTION 
 submit.onclick = function () {
-    var username = document.getElementById("username").value
-    var password = document.getElementById("password").value
-    for (i = 0; i < objPeople.length; i++) {
-        if (username == objPeople[i].username && password == objPeople[i].password) {
+
+    //Create a binding that gets the value from HTML input fields
+    var inputUsername = document.getElementById('username');
+    var inputPassword = document.getElementById('password');
+
+    //Make sure fields are filled with information 
+     if(inputUsername.value.length == 0 || inputPassword.value.length == 0){
+         resultSpan.innerText = "You need to enter valid information";
+         return false;
+    }
+    
+    //When information is entered, we will loop through it to check the information
+    for (var i = 0; i < objPeople.length; i++) {
+
+        //Bind user and password to values for future use
+        var user = objPeople[i];
+        
+        try{
+        var hashedInputPassword = user.hashPassword(inputPassword.value);
+        } catch (error){
+        console.log(error);
+        }  
+
+        //Check if username and password are valid
+        if (user.username == inputUsername.value && user.password == hashedInputPassword) {
+            
+            //See last access time. Right now not necessary
+            //user.setLastAccess();
+
             window.location.replace("index.html");
             // 'Return true' helps to only return the successful login and leave out the other results.
             return true;
@@ -34,15 +92,14 @@ submit.onclick = function () {
         console.log("Button is clicked");
     };
 
-    // Our login function should also have a counter. 
-    // We move our counter out of the 'for' loop, but keep it inside the function. 
-
+    // Count the number of login attempts (set to three)
     if (loginAttempts == 1) {
         document.getElementById("loginResult").innerHTML = "No more login attempts";
     } else {
         loginAttempts--;
         document.getElementById("loginResult").innerHTML = ("Only" + " " + loginAttempts + " " + "login attempts left");
         if (loginAttempts == 1) {
+
             //TODO: Den disabler ikke, dette skal fixes!!
             document.getElementById(username).disabled = true;
             document.getElementById(password).disabled = true;
@@ -52,61 +109,50 @@ submit.onclick = function () {
     }
 };
 
-
- class User {
-     constructor(username, password, birthDay){
-         this.username = username;
-         this.password = password;
-         this.birthDay = birthDay;
-     }
-
-     calculateAge(){
-        
-     }
- }
-
-// Skal slettes?
- var adr = "Amagerbrogade 232, 21, 2300 KBH";
- var adr = "Newmarket Str. 89, NH8983, New Hamshire"
-
 // CREATE NEW USER
-function registerUser() {
 
-    //Retrieve information from input fields
+//Bind a variable to the registerUser button
+var registerUser = document.getElementById('registerUser');
 
-    var registerUser = document.getElementById("newUser").value
-    var registerPassword = document.getElementById("newPassword").value
+//Add an event listener to the button 
+registerUser.addEventListener("click", function(regUser){
 
-    //Create new variable which we can push to our object. 
+//Create bindings that retrieve information from input fields
+     var setFirstName = document.getElementById('firstname').value
+     var setLastName = document.getElementById('lastname').value
+     var setNewUsername = document.getElementById('newUsername').value
+     var setEmail = document.getElementById('email').value
+     var setBirthDate = document.getElementById('calendar').value
+     var setNewPassword = document.getElementById('newPassword').value
 
-    var newUser = new User(registerUser, registerPassword);
-
-    var newUser = {
-        userName: registerUser,
-        password: registerPassword
-    }
-
-    // Make sure the username is not taken
+    // Bind new users 
+    var users = new User(setFirstName, 
+                         setLastName,   
+                         setNewUsername, 
+                         setEmail, 
+                         setBirthDate, 
+                         setNewPassword);
 
     for (i = 0; i < objPeople.length; i++) {
-        if (registerUser == objPeople[i].username) {
+        if (setNewUsername == objPeople[i].username) {
             document.getElementById("checkUsername").innerHTML = ("That username already exists")
             return
 
-            //Check password length
-
-        } else if (registerPassword.length < 8) {
+        //Check password length
+        } else if (setNewPassword.length < 8) {
             document.getElementById("checkPassword").innerHTML = ("Your password is too short")
             return
         }
     }
 
-    // Push new user to our object in the top
+   // Push new user to our object in the top
+     objPeople.push(users);
 
-    objPeople.push(newUser)
+     // Stringify object because localStorage only accepts strings
+     localStorage.setItem("users", JSON.stringify(users));
 
-    localStorage.setItem("users", JSON.stringify(objPeople));
+     console.log(objPeople)
+ });
 
-    console.log(objPeople)
-}
 //TODO: REPEAT PASSWORD skal implementeres
+ 

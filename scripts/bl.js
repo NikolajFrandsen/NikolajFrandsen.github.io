@@ -13,10 +13,10 @@ function CreateTableFromJSON(){
     for (var i = 0; i < emptyBucket.length; i++){
         tr = table.insertRow(-1);
         var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = emptyBucket[i]
+        tabCell.innerHTML = emptyBucket[i];
     }
     var divContainer = document.getElementById('showbucketlist');
-    divContainer.innterHTML = "";
+    divContainer.innerHTML = "";
     divContainer.appendChild(table);
 }
 
