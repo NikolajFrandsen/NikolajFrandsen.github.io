@@ -24,8 +24,18 @@
                      <h2 class="text-center">Register here</h2>
                      <form class="login-form">
                         <div class="createUser">
+                            <label for="inputUsername" class="text-uppercase">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" id="firstname">
+                            <span id="checkFirstName"></span>
+                        </div>
+                        <div class="createUser">
+                            <label for="inputUsername" class="text-uppercase">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" id="lastname">
+                            <span id="checkLastName"></span>
+                        </div>
+                        <div class="createUser">
                             <label for="inputUsername" class="text-uppercase">Username</label>
-                            <input type="text" class="form-control" placeholder="Username" id="newUser">
+                            <input type="text" class="form-control" placeholder="Username" id="newUsername">
                             <span id="checkUsername"></span>
                         </div>
                         <div class="createUser">
@@ -47,7 +57,7 @@
                             <input type="password" class="form-control" placeholder="Repeat Password" id="newPassword">
                             <span id="checkPassword"></span>
                         </div> 
-                    <button type="button" class="btn btn-login float-right" onclick="registerUser()">Register</button>
+                    <button type="button" class="btn btn-login float-right" name="registerUser" id="registerUser">Register</button>
                     </form>
                 </div>
             </div>  
@@ -57,15 +67,15 @@
                     <form class="login-form">
                         <div class="existing-username">
                             <label for="inputUsername" class="text-uppercase">Username</label>
-                            <input type="text" class="form-control" placeholder="Username" id="username">
+                            <input type="text" class="form-control" placeholder="Username" name="username" id="username">
                             <span id="checkUsername"></span>
                         </div>
                         <div class="existing-password">
                             <label for="inputPassword" class="text-uppercase">Password</label>
-                            <input type="password" class="form-control" placeholder="Password" id="password">
+                            <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                             <span id="checkPassword"></span>
                         </div>
-                        <button type="button" class="btn btn-login float-right" id="submit">Login</button>
+                        <button type="button" class="btn btn-login float-right" name="submit" id="submit">Login</button>
                     </form>
                 </div>
             </div>
