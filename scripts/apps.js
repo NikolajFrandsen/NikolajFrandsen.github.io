@@ -1,5 +1,9 @@
 //Creating a generic header, navigation and footer which can be used across different HTML
 
+var level = "";
+var reef = "";
+var country = "";
+
 document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
     + " " + "<span id='headerSubtext'>Find your next holiday location </span>";
@@ -60,25 +64,49 @@ for (var b = 0; b < filterBtn.length; b++) {
     // Create event listener to make the buttons active
     filterBtn[b].addEventListener("click", function () {
         var whichBtn = this.getAttribute('data-value');
+        var whichType = this.getAttribute('data-type');
         //Looping through the different attributes
+
+        if(whichType == "level"){
+            level = whichBtn;
+        }else if(whichType == "reef"){
+            reef = whichBtn;
+        }else {
+            country = whichBtn;
+        }
         
         for (i = 0; i < spots.length; i++) {
             var el = spots[i].getElementsByTagName("article")[0];
             var filterSurfspot = new surfSpot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
-            console.log(filterSurfspot);
-            console.log(whichBtn);
             
             //Start by showing all the options, then later the no matched spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
             spots[i].style.display = "";
             pictureClass[i].style.display = "";
             hideBkt[i].style.display = "";
-           
+        
             // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
-            if (filterSurfspot.level != whichBtn) {
+            if (filterSurfspot.level !== level && level !== "") {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
                 hideBkt[i].style.display = "none";
+                continue;
             }
+
+            // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
+            if (filterSurfspot.reefType !== reef && reef !== "") {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+                hideBkt[i].style.display = "none";
+                continue;                    
+            }
+            
+            // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
+            if (filterSurfspot.country != country && country !== "") {
+                spots[i].style.display = "none";
+                pictureClass[i].style.display = "none";
+                hideBkt[i].style.display = "none";
+                continue;
+            }            
         }
     })
 };
