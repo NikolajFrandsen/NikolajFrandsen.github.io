@@ -65,7 +65,7 @@ submit.onclick = function () {
      }
  }
 
-
+// Skal slettes?
  var adr = "Amagerbrogade 232, 21, 2300 KBH";
  var adr = "Newmarket Str. 89, NH8983, New Hamshire"
 

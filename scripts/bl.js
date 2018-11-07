@@ -26,11 +26,8 @@ function CreateTableFromJSON(){
 
     for (var i = 0; i < emptyBucket.length; i++){
         tr = table.insertRow(-1);
-
-        for (var j = 0; j < col.length; j++){
-            var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = emptyBucket[i][col[j]];
-        }
+        var tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = emptyBucket[i]
     }
 
     var divContainer = document.getElementById('showbucketlist');
