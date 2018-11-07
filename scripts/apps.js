@@ -54,7 +54,6 @@ beginnerLevel.addEventListener("click", function (beginFunc) {
             //If the test is not equal to our filter, then the function will hide the spot.
             spots[i].style.display = "none";
             pictureClass[i].style.display = "none";
-            // **** THIS DOESNT WORK COMPLETELY HAS TO BE FIXED ****
             hideBkt[i].style.display = "none";
         }
     }
