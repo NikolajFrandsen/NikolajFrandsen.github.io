@@ -49,11 +49,11 @@
 
 <!-- GOOGLE MAPS -->
 
+
 <section class="google-maps">
     <div id="map"></div>
         
-        <script>
-            // Read everything about the map here: https://developers.google.com/maps/documentation/javascript/tutorial
+        <!--<script>
         function myMap() {
             // Map options
             var options = {
@@ -132,7 +132,7 @@
             });   
         }
     }
-        </script>
+        </script> -->
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzeXsBKu4xO1p7cq_DI1Ss3bv8rrR55aI&callback=myMap"></script>
         <!-- <link rel="stylesheet" href="styles/mapStyle.css"> -->
@@ -143,7 +143,7 @@
     <div class="container" id="sidebar">
             <button class="btnfilter btn-primary active" id="showAll">Show All</button><br>
 
-            <!-- Level filter -->
+            <!-- Level filter. The data type is added to make the filters for multiple filtering. Same for type and country-->
             <h3>Level</h3>
             <button class="btnfilter btn-primary" id="levelBeginner" data-value="Beginner" data-type="level">Beginner</button><br>
             <button class="btnfilter btn-primary" id="levelIntermediate" data-value="Intermediate" data-type="level">Intermediate</button><br>

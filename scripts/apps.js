@@ -1,9 +1,12 @@
-//Creating a generic header, navigation and footer which can be used across different HTML
 
+
+//Creating variables which can save the filtering preferences of a user
+// making it possible to filter on more than one aspect
 var level = "";
 var reef = "";
 var country = "";
 
+//Creating a generic header, navigation and footer which can be used across different HTML
 document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
     + " " + "<span id='headerSubtext'>Find your next holiday location </span>";
@@ -17,6 +20,89 @@ document.getElementById("genericNav").innerHTML =
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
     + " " + "<span id='headerSubtext'>Contact us</span>";
+
+
+document.getElementsByClassName("google-maps");
+document.getElementById("map");
+
+function myMap() {
+    // Map options
+    var options = {
+        zoom: 3,
+        center: {lat: 57.72093, lng: 10.58394}
+    }
+    // New map
+    var map = new 
+    google.maps.Map(document.getElementById('map'), options);
+
+    addMarker({
+        coordinates: {lat:39.355,lng:-9.381},
+        content:'Supertubos',
+        txt: 'Peniche, Portugal'
+    });
+
+     addMarker({
+        coordinates: {lat:38.988, lng:-9.421},
+        content:'World Surf Reserve',
+        txt: 'Ericeira, Portugal'
+    });
+
+    addMarker({
+        coordinates: {lat:38.697, lng:-9.421},
+        content:'Consistent surf close to Lisbon',
+        txt: 'Cascais, Portugal'
+    });
+
+    addMarker({
+        coordinates: {lat:68.333, lng:14.666},
+        content:'Ice cold surf in the north',
+        txt: 'Lofoten, Norway'
+    });
+
+    addMarker({
+        coordinates: {lat:56.953, lng:8.382},
+        content:'Cold water surf on the west coast of Jutland',
+        txt: 'Voruper, Denmark'
+    });
+
+    addMarker({
+        coordinates: {lat:39.602, lng:-9.068}, 
+        content:'Here you find the biggest wave in the world',
+        txt: 'Nazaré, Portugal'
+    });
+
+    addMarker({
+        coordinates: {lat:57.081, lng:8.545},
+        content:'Cold Hawaii',
+        txt: 'Klitmoeller, Denmark'
+    });
+
+    addMarker({
+        coordinates: {lat:43.284, lng:-2.169},
+        content: 'Spaaaaain',
+        txt: 'Zarautz, Spain'
+    });
+
+    //Add marker function
+    function addMarker(info){
+        var marker = new google.maps.Marker({
+        position:info.coordinates,
+        map:map,
+        title: info.txt,
+        // Adding custom markers
+        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    });
+    
+    // Adding the description of the spots
+    var infoWindow = new google.maps.InfoWindow({
+        content:info.content
+    });
+
+    marker.addListener('click', function(){
+        infoWindow.open(map,marker);
+    });   
+}
+}
 
 
 
@@ -79,7 +165,7 @@ for (var b = 0; b < filterBtn.length; b++) {
             var el = spots[i].getElementsByTagName("article")[0];
             var filterSurfspot = new surfSpot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
             
-            //Start by showing all the options, then later the no matched spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
+            //Start by showing all the options, then later the non-matching spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
             spots[i].style.display = "";
             pictureClass[i].style.display = "";
             hideBkt[i].style.display = "";
@@ -92,7 +178,7 @@ for (var b = 0; b < filterBtn.length; b++) {
                 continue;
             }
 
-            // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
+            // For the type buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
             if (filterSurfspot.reefType !== reef && reef !== "") {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
@@ -100,7 +186,7 @@ for (var b = 0; b < filterBtn.length; b++) {
                 continue;                    
             }
             
-            // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
+            // For the country buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
             if (filterSurfspot.country != country && country !== "") {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
@@ -125,7 +211,7 @@ if (emptyBucket == null) {
 var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 
 for (var i = 0; i < bucketButtonClicked.length; i++) {
-
+// The bucketFunc is never read. Should we remove it?
     bucketButtonClicked[i].addEventListener("click", function (bucketFunc) {
         if (emptyBucket.includes(this.id)) {
             return false
@@ -141,7 +227,7 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
 
 // Remove Button
 var removeButton = document.getElementsByClassName("remove-btn");
-
+// We need more comments here :-)
 for (var i = 0; i < removeButton.length; i++) {
     removeButton[i].addEventListener("click", function (e) {
         var index = getArrayIndex(this.id);
