@@ -49,13 +49,13 @@
                         </div>
                         <div class="createUser">
                             <label for="inputPassword" class="text-uppercase">Password</label>
-                            <input type="password" class="form-control" placeholder="Password" id="newPassword">
+                            <input type="password" class="form-control" placeholder="Password" id="newPassword" onkeyup='controlPassword();'>
                              <span id="checkPassword"></span>
                         </div>
                         <div class="createUser">
                             <label for="inputPassword" class="text-uppercase">Repeat Password</label>
-                            <input type="password" class="form-control" placeholder="Repeat Password" id="confirmPassword">
-                            <span id="checkPassword"></span>
+                            <input type="password" class="form-control" placeholder="Repeat Password" id="confirmPassword" onkeyup='controlPassword();'>
+                            <span id="message"></span>
                         </div> 
                     <button type="button" class="btn btn-login float-right" name="registerUser" id="registerUser">Register</button>
                     </form>

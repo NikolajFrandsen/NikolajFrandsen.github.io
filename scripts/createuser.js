@@ -139,11 +139,12 @@ registerUser.addEventListener("click", function(regUser){
             return
 
         //Check password length
-        } else if (setNewPassword.length < 8) {
+        } if (setNewPassword.length < 8) {
             document.getElementById("checkPassword").innerHTML = ("Your password is too short")
             return
-        }
+        }  
     }
+    
 
    // Push new user to our object in the top
      objPeople.push(users);
@@ -156,3 +157,27 @@ registerUser.addEventListener("click", function(regUser){
 
 //TODO: REPEAT PASSWORD skal implementeres
  
+// Here we create a function to check if the passwords are matching by checking the values with an if statement 
+var controlPassword = function() {
+    if (document.getElementById("newPassword").value == document.getElementById("confirmPassword").value) {
+      // If the passwords are matching we want it to show a message that says "Password is matching"
+      document.getElementById("message").style.color = "purple";
+      document.getElementById("message").innerHTML = "Password is matching";
+      document.getElementById('registerUser').disabled = false;
+    } else {
+      document.getElementById("message").style.color = "black"; 
+      document.getElementById("message").innerHTML = "Password is not matching";
+      document.getElementById('registerUser').disabled = true;
+
+      //TODO: this code ONLY shows if the passwords are not matching, this does not stop the user from proceeding 
+    } 
+    
+  }
+
+  /*function check_pass () {
+      if (document.getElementById('newPassword').value == document.getElementById('confirmPassword').value) {
+          document.getElementById('submit').disabled = false;
+      } else {
+          document.getElementById('submit').disabled = true;
+      }
+  } */
