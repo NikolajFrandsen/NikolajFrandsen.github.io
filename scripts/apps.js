@@ -134,7 +134,7 @@ var hideBkt = document.getElementsByClassName("middle");
 
 
 //Create class and constructor structure which will be used for our filtering function
-class surfSpot {
+class Surfspot {
     constructor(id, level, reefType, country) {
         this.id = id;
         this.level = level;
@@ -200,19 +200,23 @@ for (var b = 0; b < filterBtn.length; b++) {
 //BUCKET LIST FUNCTION
 
 var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
-//Tjekker om der er nogle der er værdier i emptybucket hvis ikke lave den et tomt array og ellers så loader den de værdier
+
+// Check if there are values in emptyBucket. If not create new empty array.
+// This is to prevent the program from creating a new empty array every time.
 if (emptyBucket == null) {
     emptyBucket = [];
 } else {
-    var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+    emptyBucket;
 }
 
-
+// Bind a value to the button in HTML
 var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 
+// Loop through our buttons to check which spot is clicked.
 for (var i = 0; i < bucketButtonClicked.length; i++) {
-// The bucketFunc is never read. Should we remove it?
-    bucketButtonClicked[i].addEventListener("click", function (bucketFunc) {
+
+// Check if the bucket item is already in the bucket, else push the new item to the bucket. 
+    bucketButtonClicked[i].addEventListener("click", function () {
         if (emptyBucket.includes(this.id)) {
             return false
         } else {
@@ -225,12 +229,17 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
     })
 }
 
-// Remove Button
+// Bind a value to the remove button from HTML
 var removeButton = document.getElementsByClassName("remove-btn");
-// We need more comments here :-)
+
+// Loop through the button clicked. 
 for (var i = 0; i < removeButton.length; i++) {
+
+    // Check which button is clicked. 
     removeButton[i].addEventListener("click", function (e) {
         var index = getArrayIndex(this.id);
+
+        // Remove from the list. 
         emptyBucket.splice(index, 1);
         localStorage.setItem('bucketItems', JSON.stringify(emptyBucket));
     })
