@@ -83,6 +83,13 @@ function myMap() {
         txt: 'Zarautz, Spain'
     });
 
+    addMarker({
+        coordinates: {lat:43.66933781, lng:-1.44266238},
+        content: 'Fraaaaance',
+        txt: 'Hossegor, France'
+
+    })
+
     //Add marker function
     function addMarker(info){
         var marker = new google.maps.Marker({
