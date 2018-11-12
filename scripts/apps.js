@@ -82,13 +82,6 @@ function myMap() {
         txt: 'Zarautz, Spain'
     });
 
-    addMarker({
-        coordinates: {lat:43.66933781, lng:-1.44266238},
-        content: 'Fraaaaance',
-        txt: 'Hossegor, France'
-
-    })
-
     //Add marker function
     function addMarker(info){
         var marker = new google.maps.Marker({
@@ -194,14 +187,22 @@ for (var b = 0; b < filterBtn.length; b++) {
     })
 };
 
-//BUCKET LIST FUNCTION
+//BUCKET LIST FUNCTION ***TODO: CLASS***
+
+// Create class for bucket list items. 
 class Bucketlist {
     constructor (spot){
         this.spot = spot;
     }
 }
 
-var emptyBucket = JSON.parse(localStorage.getItem(""));
+// Create an empty array which we can push our items to. 
+var spotsAdded = [];
+
+// Add some spots for TEST
+spotsAdded.push(new Bucketlist(""))
+
+var emptyBucket = JSON.parse(localStorage.getItem("bucketItem"));
 
 // Check if there are values in emptyBucket. If not create new empty array.
 // This is to prevent the program from creating a new empty array every time.
@@ -219,20 +220,18 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
 
 // Check if the bucket item is already in the bucket, else push the new item to the bucket. 
     bucketButtonClicked[i].addEventListener("click", function () {
-        var bucketListItems = new Bucketlist(emptyBucket);
-        if (emptyBucket.includes(this.id)) {
+        if (spotsAdded.includes(this.id)) {
             return false
         } else {
-            emptyBucket.push(this.id)
-            localStorage.setItem("bucketListItems", JSON.stringify(bucketListItems));
-
-        console.log(bucketListItems);
+            spotsAdded.push(this.id)
+            localStorage.setItem("bucketItem", JSON.stringify(spotsAdded));
+        console.log(spotss);
         return //console.log(bucketButtonClicked);
         }
     })
 }
 
-//Create remove button. 
+//Create REMOVE button.
 // Bind a value to the remove button from HTML
 var removeButton = document.getElementsByClassName("remove-btn");
 

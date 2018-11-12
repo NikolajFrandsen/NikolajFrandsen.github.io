@@ -1,37 +1,49 @@
 body{
-    background-color: #EAE7DC;
+    background-image:url("http://energisinggoals.com/wp-content/uploads/2016/07/sea-sunset-sunny-beach.jpeg");
+    -webkit-background-size: cover;
+    z-index: -1;
 }
-.container{
-    height: 100px;
-    margin-left: 35%;
+.createUser{
+    text-align: left;
+}
+#genericHeader{
+    height: 50px;
+    background-color: #2A5B84;
+    margin: auto;
+    text-align: left; 
+    padding: 10px;
+}
+#genericNav{
+    height: 30px;
+    background-color: #2A5B84;
+    margin: auto;
     text-align: left; 
     padding: auto;
-    color: white; 
 }
-h1{
+#headerText{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 25px;
+    margin-right: 10px;
+}
+#headerSubtext{
+    font-family: 'Courier New', Courier, monospace;
     color: white;
 }
-h2{
-    font-size:;
+a {
     color: white;
 }
-h3{
-    font-size: 20px;
-    margin-top: 20px;
-    color: white;
+a:hover{
+    color: rgb(170, 189, 170);
 }
-.footer{
-    position: relative;
-    margin-top: 15%;
+.btn{
+    margin-left: 1%;
+    margin-bottom: 2;
 }
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.row{
-  text-align:
-}
-#genericFooter {
-    color:white; 
-}
+#genericFooter{
+    height: 50px;
+  }
+  #navBtn{
+      padding: 3px;
+      margin: 5px;
+  }
