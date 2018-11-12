@@ -155,10 +155,8 @@ registerUser.addEventListener("click", function(regUser){
      console.log(objPeople)
  });
 
-//TODO: REPEAT PASSWORD skal implementeres
- 
-// Here we create a function to check if the passwords are matching by checking the values with an if statement 
-var controlPassword = function() {
+   // Here we create a function to check if the passwords are matching by checking the values with an if statement 
+   var controlPassword = function() {
     if (document.getElementById("newPassword").value == document.getElementById("confirmPassword").value) {
       // If the passwords are matching we want it to show a message that says "Password is matching"
       document.getElementById("message").style.color = "purple";
@@ -171,13 +169,6 @@ var controlPassword = function() {
 
       //TODO: this code ONLY shows if the passwords are not matching, this does not stop the user from proceeding 
     } 
-    
   }
+ 
 
-  /*function check_pass () {
-      if (document.getElementById('newPassword').value == document.getElementById('confirmPassword').value) {
-          document.getElementById('submit').disabled = false;
-      } else {
-          document.getElementById('submit').disabled = true;
-      }
-  } */
