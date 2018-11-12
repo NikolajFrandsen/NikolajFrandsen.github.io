@@ -83,6 +83,13 @@ function myMap() {
         txt: 'Zarautz, Spain'
     });
 
+    addMarker({
+        coordinates: {lat:43.66933781, lng:-1.44266238},
+        content: 'Fraaaaance',
+        txt: 'Hossegor, France'
+
+    })
+
     //Add marker function
     function addMarker(info){
         var marker = new google.maps.Marker({
@@ -147,7 +154,7 @@ for (var b = 0; b < filterBtn.length; b++) {
         
         for (i = 0; i < spots.length; i++) {
             var el = spots[i].getElementsByTagName("article")[0];
-            var filterSurfspot = new surfSpot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
+            var filterSurfspot = new Surfspot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
             
             //Start by showing all the options, then later the non-matching spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
             spots[i].style.display = "";
