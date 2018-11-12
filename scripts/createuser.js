@@ -55,7 +55,8 @@ var loginAttempts = 3;
 
 
 //LOGIN FUNCTION 
-submit.onclick = function () {
+var submitLogin = document.getElementById('submit');
+submitLogin.addEventListener('click', function(){
 
     //Create a binding that gets the value from HTML input fields
     var inputUsername = document.getElementById('username');
@@ -107,7 +108,7 @@ submit.onclick = function () {
         }
         return false;
     }
-};
+});
 
 // CREATE NEW USER
 

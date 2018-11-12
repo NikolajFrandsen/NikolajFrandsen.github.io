@@ -9,11 +9,10 @@ var country = "";
 //Creating a generic header, navigation and footer which can be used across different HTML
 document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
-    + " " + "<span id='headerSubtext'>Find your next holiday location </span>";
+    + " " + "<span id='headerSubtext'>Find your next surf location </span>";
 document.getElementById("genericNav").innerHTML =
     "<ul id='navLinks'>"
     + "<a id='navBtn' class='btn-primary' href='index.html'> Home </a>"
-    + "<a id='navBtn' class='btn-primary' href='#'> Blog </a>"
     + "<a id='navBtn' class='btn-primary' href='bucketlist.html'> Bucket List </a>"
     + "<a id='navBtn' class='btn-primary' href='createuser.html'> Sign up / Login </a>"
     + "</ul>";
@@ -147,7 +146,7 @@ for (var b = 0; b < filterBtn.length; b++) {
         
         for (i = 0; i < spots.length; i++) {
             var el = spots[i].getElementsByTagName("article")[0];
-            var filterSurfspot = new surfSpot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
+            var filterSurfspot = new Surfspot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
             
             //Start by showing all the options, then later the non-matching spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
             spots[i].style.display = "";
@@ -189,16 +188,21 @@ for (var b = 0; b < filterBtn.length; b++) {
 };
 
 //BUCKET LIST FUNCTION
+class Bucketlist {
+    constructor (spot){
+        this.spot = spot;
+    }
+}
 
-var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+var emptyBucket = JSON.parse(localStorage.getItem(""));
 
 // Check if there are values in emptyBucket. If not create new empty array.
 // This is to prevent the program from creating a new empty array every time.
-if (emptyBucket == null) {
-    emptyBucket = [];
-} else {
-    emptyBucket;
-}
+ if (emptyBucket == null) {
+     emptyBucket = [];
+ } else {
+     emptyBucket;
+ }
 
 // Bind a value to the button in HTML
 var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
@@ -208,18 +212,20 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
 
 // Check if the bucket item is already in the bucket, else push the new item to the bucket. 
     bucketButtonClicked[i].addEventListener("click", function () {
+        var bucketListItems = new Bucketlist(emptyBucket);
         if (emptyBucket.includes(this.id)) {
             return false
         } else {
             emptyBucket.push(this.id)
-            localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
+            localStorage.setItem("bucketListItems", JSON.stringify(bucketListItems));
 
-            console.log(emptyBucket);
-            return //console.log(bucketButtonClicked);
+        console.log(bucketListItems);
+        return //console.log(bucketButtonClicked);
         }
     })
 }
 
+//Create remove button. 
 // Bind a value to the remove button from HTML
 var removeButton = document.getElementsByClassName("remove-btn");
 
