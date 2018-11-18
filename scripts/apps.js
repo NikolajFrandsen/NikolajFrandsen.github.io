@@ -187,7 +187,7 @@ for (var b = 0; b < filterBtn.length; b++) {
     })
 };
 
-//BUCKET LIST FUNCTION ***TODO: CLASS***
+//BUCKET LIST FUNCTION (WITH CLASSES)
 
 // Create class for bucket list items. 
 class Bucketlist {
@@ -199,19 +199,6 @@ class Bucketlist {
 // Create an empty array which we can push our items to. 
 var spotsAdded = [];
 
-// Add some spots for TEST
-spotsAdded.push(new Bucketlist(""))
-
-var emptyBucket = JSON.parse(localStorage.getItem("bucketItem"));
-
-// Check if there are values in emptyBucket. If not create new empty array.
-// This is to prevent the program from creating a new empty array every time.
- if (emptyBucket == null) {
-     emptyBucket = [];
- } else {
-     emptyBucket;
- }
-
 // Bind a value to the button in HTML
 var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 
@@ -220,13 +207,50 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
 
 // Check if the bucket item is already in the bucket, else push the new item to the bucket. 
     bucketButtonClicked[i].addEventListener("click", function () {
-        if (spotsAdded.includes(this.id)) {
+
+        // Creating a binding which gets the values from the button ID. 
+        var setNewSpot = document.getElementById(this.id);
+        console.log(setNewSpot.id);
+
+        // Usind .id to access the ID inside the element. Without it, we get the whole button text. 
+        var newSpot = new Bucketlist(setNewSpot.id);
+
+        if (this.spot == setNewSpot.id){
             return false
         } else {
-            spotsAdded.push(this.id)
-            localStorage.setItem("bucketItem", JSON.stringify(spotsAdded));
-        console.log(spotss);
-        return //console.log(bucketButtonClicked);
+            spotsAdded.push(newSpot)
+            localStorage.setItem("bucketItem", JSON.stringify(newSpot));
+        }
+        
+        console.log(newSpot);
+        return
+    });
+}
+
+//BUCKETLIST ADD (WITHOUT CLASSES)
+
+var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+ 
+if (emptyBucket == null) {
+    emptyBucket = [];
+} else {
+    var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+}
+
+
+var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
+
+for (var i = 0; i < bucketButtonClicked.length; i++) {
+
+    bucketButtonClicked[i].addEventListener("click", function (bucketFunc) {
+        if (emptyBucket.includes(this.id)) {
+            return false
+        } else {
+            emptyBucket.push(this.id)
+            localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
+
+            console.log(emptyBucket);
+            return //console.log(bucketButtonClicked);
         }
     })
 }

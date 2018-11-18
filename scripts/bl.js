@@ -4,7 +4,7 @@
 var showBucketListTable = document.getElementById('showBucketListTable');
 
 showBucketListTable.addEventListener('click', function(){
-        var emptyBucket = JSON.parse(localStorage.getItem("bucketItem"));
+        var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
         var table = document.createElement("table");
         var tr = table.insertRow(-1);
         // HEADER --> Remove brackets to see. 

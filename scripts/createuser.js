@@ -171,5 +171,3 @@ registerUser.addEventListener("click", function(regUser){
       //TODO: this code ONLY shows if the passwords are not matching, this does not stop the user from proceeding 
     } 
   }
- 
-
