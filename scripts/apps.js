@@ -14,7 +14,8 @@ document.getElementById("genericNav").innerHTML =
     "<ul id='navLinks'>"
     + "<a id='navBtn' class='btn-primary' href='index.html'> Home </a>"
     + "<a id='navBtn' class='btn-primary' href='bucketlist.html'> Bucket List </a>"
-    + "<a id='navBtn' class='btn-primary' href='createuser.html'> Sign up / Login </a>"
+    + "<a id='navBtn2' class='login btn-primary' href='createuser.html'> Sign up / Login </a>"
+    + "<a id='navBtn1' class='logout btn-primary' href='createuser.html'> Log out</a>"
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
@@ -281,8 +282,26 @@ function getArrayIndex(elementID) {
     }
 }
 
-// Reset-Clear bucketlist
-//////var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+//Only show buttons if logged in
+var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
 
-// This has been added directly in the HTML due to reading failure --> see more on loggedin.html
-// document.getElementById('showbucketlist').innerHTML = JSON.parse(localStorage.getItem('bucketItems'))
+var getUsername = checkLoginStatus.username;
+
+console.log(checkLoginStatus);
+console.log(getUsername);
+
+// Create bindings
+var btnAdd = document.getElementsByClassName("bucketlist-btn");
+var btnRemove = document.getElementsByClassName("remove-btn");
+var btnLogin = document.getElementsByClassName("login");
+var btnLogout = document.getElementsByClassName("logout");
+
+// Loop through classes
+for (var i = 0; i != btnAdd.length; i++){
+    if(getUsername){
+    btnAdd[i].style.visibility = "visible";
+    btnRemove[i].style.visibility = "visible";
+    btnLogin[i].style.visibility = "hidden";
+    btnLogout[i].style.visibility = "visible";
+    }
+}

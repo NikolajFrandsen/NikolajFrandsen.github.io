@@ -130,3 +130,19 @@ h4{
       padding: 3px;
       margin: 5px;
   }
+  .bucketlist-btn{
+      visibility: hidden;
+  }
+  .remove-btn{
+      visibility: hidden;
+  }
+  .login{
+      padding: 3px;
+      margin: 5px;
+      visibility: visible;
+  }
+  .logout{
+    padding: 3px;
+    margin: 5px;
+    visibility: hidden;
+  }
