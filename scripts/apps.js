@@ -21,6 +21,7 @@ document.getElementById('genericFooter').innerHTML =
 document.getElementsByClassName("google-maps");
 document.getElementById("map");
 
+// Source to Google Maps API https://www.youtube.com/watch?v=Zxf1mnP5zcw&t=1270s
 function myMap() {
     // Map options
     var options = {
@@ -50,6 +51,12 @@ function myMap() {
     });
 
     addMarker({
+        coordinates: {lat:43.6649, lng:-1.39717},  
+        content:'Hollow tube rides on the west coast of France',
+        txt: 'Hossegor, France'
+    });
+
+    addMarker({
         coordinates: {lat:68.333, lng:14.666},
         content:'Ice cold surf in the north',
         txt: 'Lofoten, Norway'
@@ -75,7 +82,7 @@ function myMap() {
 
     addMarker({
         coordinates: {lat:43.284, lng:-2.169},
-        content: 'Spaaaaain',
+        content: 'Spain',
         txt: 'Zarautz, Spain'
     });
 
