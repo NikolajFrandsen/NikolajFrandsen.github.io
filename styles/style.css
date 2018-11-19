@@ -54,6 +54,14 @@ a:hover{
     right: 4%;
     left: 1%;
 }
+/*.container2{
+    position: fixed;
+    width: 10%;
+    right: 0;
+    padding: 0%;
+    right: 4%;
+    left: 1%;
+}*/
 .picture{
     height: 200px;
     width: 100%;
@@ -63,6 +71,7 @@ a:hover{
     backface-visibility: hidden;
     opacity: 1;
     display: block;
+    border-radius: 15px;
 }
 .middle{
     transition: .5s ease;
@@ -122,6 +131,7 @@ h4{
   .btnfilter{
       width: 80%;
       margin: 2px;
+      border-radius: 10px;
   }
   #genericFooter{
     height: 50px;
@@ -129,12 +139,15 @@ h4{
   #navBtn{
       padding: 3px;
       margin: 5px;
+      border-radius: 10px;
   }
   .bucketlist-btn{
       visibility: hidden;
+      border-radius: 10px;
   }
   .remove-btn{
       visibility: hidden;
+      border-radius: 10px;
   }
   .login{
       padding: 3px;
@@ -145,4 +158,5 @@ h4{
     padding: 3px;
     margin: 5px;
     visibility: hidden;
+    border-radius: 10px;
   }
