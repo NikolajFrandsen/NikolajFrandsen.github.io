@@ -11,6 +11,7 @@ document.getElementById("genericNav").innerHTML =
     + "<a id='navBtn' class='btn-primary' href='bucketlist.html'> Bucket List </a>"
     + "<a id='navBtn2' class='login btn-primary' href='createuser.html'> Sign up / Login </a>"
     + "<a id='navBtn1' class='logout btn-primary' href='createuser.html'> Logout</a>"
+    + "<span id='userSession'></span>"
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
@@ -144,7 +145,6 @@ for (var b = 0; b < filterBtn.length; b++) {
             showall=whichBtn
         }
         console.log(whichBtn);
-        
         for (i = 0; i < spots.length; i++) {
             var el = spots[i].getElementsByTagName("article")[0];
             var filterSurfspot = new Surfspot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
@@ -284,7 +284,7 @@ function getArrayIndex(elementID) {
     }
 }
 
-// Require login 
+// REQUIRE LOGIN 
 //Only show buttons if logged in
 var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
 
@@ -304,4 +304,10 @@ for (var i = 0; i < btnAdd.length; i++){
     btnLogin[0].style.visibility = "hidden";
     btnLogout[0].style.visibility = "visible";
     }
+}
+
+var welcomeSpan = document.getElementById('userSession');
+
+if (checkLoginStatus != null){
+    userSession.innerText = "Welcome" + " " + getUsername;
 }

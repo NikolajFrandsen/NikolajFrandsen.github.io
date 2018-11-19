@@ -146,3 +146,7 @@ h4{
     margin: 5px;
     visibility: hidden;
   }
+  #userSession{
+      color: white;
+      text-align: left;
+  }
