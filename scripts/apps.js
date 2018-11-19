@@ -1,10 +1,5 @@
 
 
-//Creating variables which can save the filtering preferences of a user
-// making it possible to filter on more than one aspect
-var level = "";
-var reef = "";
-var country = "";
 
 //Creating a generic header, navigation and footer which can be used across different HTML
 document.getElementById("genericHeader").innerHTML =
@@ -15,7 +10,7 @@ document.getElementById("genericNav").innerHTML =
     + "<a id='navBtn' class='btn-primary' href='index.html'> Home </a>"
     + "<a id='navBtn' class='btn-primary' href='bucketlist.html'> Bucket List </a>"
     + "<a id='navBtn2' class='login btn-primary' href='createuser.html'> Sign up / Login </a>"
-    + "<a id='navBtn1' class='logout btn-primary' href='createuser.html'> Log out</a>"
+    + "<a id='navBtn1' class='logout btn-primary' href='createuser.html'> Logout</a>"
     + "</ul>";
 document.getElementById('genericFooter').innerHTML =
     "<span id='headerText'>Want to learn more about us?</span>"
@@ -104,6 +99,11 @@ function myMap() {
 }
 }
 
+//Creating variables which can save the filtering preferences of a user
+// making it possible to filter on more than one aspect
+var level = "";
+var reef = "";
+var country = "";
 
 //Getting the spot info from the HTML
 var spots = document.getElementsByClassName('spot-info');
@@ -273,6 +273,8 @@ for (var i = 0; i < removeButton.length; i++) {
     })
 };
 
+
+//TODO
 function getArrayIndex(elementID) {
 
     for (i = 0; i < emptyBucket.length; i++) {
@@ -282,13 +284,11 @@ function getArrayIndex(elementID) {
     }
 }
 
+// Require login 
 //Only show buttons if logged in
 var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
 
 var getUsername = checkLoginStatus.username;
-
-console.log(checkLoginStatus);
-console.log(getUsername);
 
 // Create bindings
 var btnAdd = document.getElementsByClassName("bucketlist-btn");
@@ -297,11 +297,11 @@ var btnLogin = document.getElementsByClassName("login");
 var btnLogout = document.getElementsByClassName("logout");
 
 // Loop through classes
-for (var i = 0; i != btnAdd.length; i++){
+for (var i = 0; i < btnAdd.length; i++){
     if(getUsername){
     btnAdd[i].style.visibility = "visible";
     btnRemove[i].style.visibility = "visible";
-    btnLogin[i].style.visibility = "hidden";
-    btnLogout[i].style.visibility = "visible";
+    btnLogin[0].style.visibility = "hidden";
+    btnLogout[0].style.visibility = "visible";
     }
 }

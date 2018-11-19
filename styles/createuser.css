@@ -47,3 +47,13 @@ a:hover{
       padding: 3px;
       margin: 5px;
   }
+.login{
+    padding: 3px;
+    margin: 5px;
+    visibility: visible;
+}
+.logout{
+  padding: 3px;
+  margin: 5px;
+  visibility: hidden;
+}
