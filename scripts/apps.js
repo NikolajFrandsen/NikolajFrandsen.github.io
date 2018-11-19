@@ -149,6 +149,9 @@ for (var b = 0; b < filterBtn.length; b++) {
             country = whichBtn;
         } else {
             showall=whichBtn
+            level = '';
+            reef = '';
+            country = '';
         }
         console.log(whichBtn);
         
