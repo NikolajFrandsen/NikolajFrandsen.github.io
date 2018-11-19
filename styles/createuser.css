@@ -46,14 +46,17 @@ a:hover{
   #navBtn{
       padding: 3px;
       margin: 5px;
+      border-radius: 10px;
   }
 .login{
     padding: 3px;
     margin: 5px;
     visibility: visible;
+    border-radius: 10px;
 }
 .logout{
   padding: 3px;
   margin: 5px;
   visibility: hidden;
+  border-radius: 10px;
 }
