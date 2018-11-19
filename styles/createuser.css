@@ -60,3 +60,6 @@ a:hover{
   visibility: hidden;
   border-radius: 10px;
 }
+#userSession{
+    color: white;
+}
