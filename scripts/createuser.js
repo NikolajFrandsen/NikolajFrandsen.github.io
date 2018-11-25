@@ -132,14 +132,16 @@ registerUser.addEventListener("click", function(regUser){
     for (i = 0; i < objPeople.length; i++) {
         if (setNewUsername == objPeople[i].username) {
             document.getElementById("checkUsername").innerHTML = ("That username already exists")
+            alert("That username already exists");
             return
 
         //Check password length
         } if (setNewPassword.length < 8) {
             document.getElementById("checkPassword").innerHTML = ("Your password is too short")
             return
-        }  
+        }
     }
+    alert("You have succesfully created an account");
     
 
    // Push new user to our object in the top
