@@ -283,17 +283,6 @@ for (var i = 0; i < removeButton.length; i++) {
     })
 };
 
-
-//TODO
-function getArrayIndex(elementID) {
-
-    for (i = 0; i < emptyBucket.length; i++) {
-        if (emptyBucket[i] == elementID) {
-            return i;
-        }
-    }
-}
-
 // REQUIRE LOGIN 
 //Only show buttons if logged in
 var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
