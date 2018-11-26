@@ -1,0 +1,12 @@
+diff a/scripts/apps.js b/scripts/apps.js	(rejected hunks)
+@@ -308,6 +308,6 @@
+ 
+ var welcomeSpan = document.getElementById('userSession');
+ 
+-if (checkLoginStatus != null){
++/* if (checkLoginStatus != null){
+     userSession.innerText = "Welcome" + " " + getUsername;
+-}
+\ No newline at end of file
++} */
+\ No newline at end of file

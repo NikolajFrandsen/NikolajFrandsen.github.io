@@ -19,7 +19,7 @@ h1{
     text-align: left; 
     padding: auto;
 }
-#genericFooter{
+/*#genericFooter{
     height: 50px;
     background-color: #2A5B84;
     margin: auto;
@@ -27,7 +27,7 @@ h1{
     padding: 10px;  
     width: 100%;
     position: absolute;
-}
+}*/
 #navBtn2{
     border-radius: 10px;
 }
