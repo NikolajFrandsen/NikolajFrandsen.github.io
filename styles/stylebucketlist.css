@@ -28,3 +28,6 @@ h1{
     width: 100%;
     position: absolute;
 }
+#navBtn2{
+    border-radius: 10px;
+}
