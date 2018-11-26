@@ -319,8 +319,4 @@ btnLogout[0].addEventListener("click", function(){
     //location.reload();
     // This option redirects you to the sign in page after loggin out.
     btnLogin[0].style.visibility = "hidden";
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 3eea929dff75f7fad5f466c200d09bef4d54583c
