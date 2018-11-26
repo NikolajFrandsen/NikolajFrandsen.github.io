@@ -308,6 +308,6 @@ for (var i = 0; i < btnAdd.length; i++){
 
 var welcomeSpan = document.getElementById('userSession');
 
-/* if (checkLoginStatus != null){
+if (checkLoginStatus != null){
     userSession.innerText = "Welcome" + " " + getUsername;
-} */
+}
