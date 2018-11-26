@@ -312,8 +312,6 @@ if (checkLoginStatus != null){
     userSession.innerText = "Welcome" + " " + getUsername;
 }
 
-<<<<<<< HEAD
-=======
 //This is a simple logout function, which clears the localstorage and then it reloads the location, so that the "welcome user" message is hidden.
 btnLogout[0].addEventListener("click", function(){
     localStorage.clear();
@@ -322,4 +320,3 @@ btnLogout[0].addEventListener("click", function(){
     // This option redirects you to the sign in page after loggin out.
     btnLogin[0].style.visibility = "hidden";
 });
->>>>>>> db41a34ee5c03e38bb73b39e6b3ea42b33fd1ecc
