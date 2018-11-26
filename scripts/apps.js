@@ -254,7 +254,7 @@ var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 
 for (var i = 0; i < bucketButtonClicked.length; i++) {
 
-    bucketButtonClicked[i].addEventListener("click", function (bucketFunc) {
+    bucketButtonClicked[i].addEventListener("click", function (event) {
         if (emptyBucket.includes(this.id)) {
             return false
         } else {
@@ -311,3 +311,4 @@ var welcomeSpan = document.getElementById('userSession');
 if (checkLoginStatus != null){
     userSession.innerText = "Welcome" + " " + getUsername;
 }
+
