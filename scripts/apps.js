@@ -296,7 +296,7 @@ var btnRemove = document.getElementsByClassName("remove-btn");
 var btnLogin = document.getElementsByClassName("login");
 var btnLogout = document.getElementsByClassName("logout");
 
-// Loop through classes
+// Loop through buttons, hiding and showing buttons and login / logout depending on status
 for (var i = 0; i < btnAdd.length; i++){
     if(getUsername){
     btnAdd[i].style.visibility = "visible";
