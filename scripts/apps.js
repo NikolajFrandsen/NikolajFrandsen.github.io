@@ -289,7 +289,7 @@ for (var i = 0; i < removeButton.length; i++) {
 var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
 
 var getUsername = checkLoginStatus.username;
-
+debugger
 // Create bindings
 var btnAdd = document.getElementsByClassName("bucketlist-btn");
 var btnRemove = document.getElementsByClassName("remove-btn");
@@ -297,12 +297,17 @@ var btnLogin = document.getElementsByClassName("login");
 var btnLogout = document.getElementsByClassName("logout");
 
 // Loop through buttons, hiding and showing buttons and login / logout depending on status
+if(getUsername) {
+    btnLogin[0].style.visibility = "hidden";
+    btnLogout[0].style.visibility = "visible";
+}
+
 for (var i = 0; i < btnAdd.length; i++){
+    debugger
     if(getUsername){
     btnAdd[i].style.visibility = "visible";
     btnRemove[i].style.visibility = "visible";
-    btnLogin[0].style.visibility = "hidden";
-    btnLogout[0].style.visibility = "visible";
+
     }
 }
 
