@@ -150,6 +150,7 @@ for (var b = 0; b < filterBtn.length; b++) {
             country = whichBtn;
         } else {
             showall=whichBtn
+            // Setting the values to empty, so that Show All "deletes" earlier preferences
             level = '';
             reef = '';
             country = '';
