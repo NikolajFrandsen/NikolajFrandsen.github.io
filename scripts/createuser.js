@@ -165,6 +165,6 @@ registerUser.addEventListener("click", function(regUser){
       document.getElementById("message").innerHTML = "Password is not matching";
       document.getElementById('registerUser').disabled = true;
 
-      //TODO: this code ONLY shows if the passwords are not matching, this does not stop the user from proceeding 
+      //This code ONLY shows if the passwords are not matching, this does not stop the user from proceeding 
     } 
   }
