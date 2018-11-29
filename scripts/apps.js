@@ -1,6 +1,3 @@
-
-
-
 //Creating a generic header, navigation and footer which can be used across different HTML
 document.getElementById("genericHeader").innerHTML =
     "<span id='headerText'>SpotFinder</span>"
@@ -26,85 +23,85 @@ function myMap() {
     // Map options
     var options = {
         zoom: 3,
-        center: {lat: 57.72093, lng: 10.58394}
+        center: { lat: 57.72093, lng: 10.58394 }
     }
     // New map
-    var map = new 
-    google.maps.Map(document.getElementById('map'), options);
+    var map = new
+        google.maps.Map(document.getElementById('map'), options);
 
     addMarker({
-        coordinates: {lat:39.355,lng:-9.381},
-        content:'Supertubos',
+        coordinates: { lat: 39.355, lng: -9.381 },
+        content: 'Supertubos',
         txt: 'Peniche, Portugal'
     });
 
-     addMarker({
-        coordinates: {lat:38.988, lng:-9.421},
-        content:'World Surf Reserve',
+    addMarker({
+        coordinates: { lat: 38.988, lng: -9.421 },
+        content: 'World Surf Reserve',
         txt: 'Ericeira, Portugal'
     });
 
     addMarker({
-        coordinates: {lat:38.697, lng:-9.421},
-        content:'Consistent surf close to Lisbon',
+        coordinates: { lat: 38.697, lng: -9.421 },
+        content: 'Consistent surf close to Lisbon',
         txt: 'Cascais, Portugal'
     });
 
     addMarker({
-        coordinates: {lat:43.6649, lng:-1.39717},  
-        content:'Hollow tube rides on the west coast of France',
+        coordinates: { lat: 43.6649, lng: -1.39717 },
+        content: 'Hollow tube rides on the west coast of France',
         txt: 'Hossegor, France'
     });
 
     addMarker({
-        coordinates: {lat:68.333, lng:14.666},
-        content:'Ice cold surf in the north',
+        coordinates: { lat: 68.333, lng: 14.666 },
+        content: 'Ice cold surf in the north',
         txt: 'Lofoten, Norway'
     });
 
     addMarker({
-        coordinates: {lat:56.953, lng:8.382},
-        content:'Cold water surf on the west coast of Jutland',
+        coordinates: { lat: 56.953, lng: 8.382 },
+        content: 'Cold water surf on the west coast of Jutland',
         txt: 'Voruper, Denmark'
     });
 
     addMarker({
-        coordinates: {lat:39.602, lng:-9.068}, 
-        content:'Here you find the biggest wave in the world',
+        coordinates: { lat: 39.602, lng: -9.068 },
+        content: 'Here you find the biggest wave in the world',
         txt: 'Nazaré, Portugal'
     });
 
     addMarker({
-        coordinates: {lat:57.081, lng:8.545},
-        content:'Cold Hawaii',
+        coordinates: { lat: 57.081, lng: 8.545 },
+        content: 'Cold Hawaii',
         txt: 'Klitmoeller, Denmark'
     });
 
     addMarker({
-        coordinates: {lat:43.284, lng:-2.169},
+        coordinates: { lat: 43.284, lng: -2.169 },
         content: 'Spain',
         txt: 'Zarautz, Spain'
     });
 
     //Add marker function
-    function addMarker(info){
+    function addMarker(info) {
         var marker = new google.maps.Marker({
-        position:info.coordinates,
-        map:map,
-        title: info.txt,
-        // Adding custom markers
-        icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    });
-    
-    // Adding the description of the spots
-    var infoWindow = new google.maps.InfoWindow({
-        content:info.content
-    });
+            position: info.coordinates,
+            map: map,
+            title: info.txt,
+            // Adding custom markers
+            icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        });
 
-    marker.addListener('click', function(){
-        infoWindow.open(map,marker);
-    });   
-}
+        // Adding the description of the spots
+        var infoWindow = new google.maps.InfoWindow({
+            content: info.content
+        });
+
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker);
+        });
+    }
 }
 
 //Creating variables which can save the filtering preferences of a user
@@ -134,22 +131,25 @@ class Surfspot {
 
 // Filter function based on the HTML buttons
 var filterBtn = document.getElementsByClassName("btnfilter btn-primary");
+
 //Loop through buttons
 for (var b = 0; b < filterBtn.length; b++) {
+
     // Create event listener to make the buttons active
     filterBtn[b].addEventListener("click", function () {
         var whichBtn = this.getAttribute('data-value');
         var whichType = this.getAttribute('data-type');
-        //Looping through the different attributes
 
-        if(whichType == "level"){
+        //Looping through the different attributes
+        if (whichType == "level") {
             level = whichBtn;
-        }else if(whichType == "reef"){
+        } else if (whichType == "reef") {
             reef = whichBtn;
-        }else if (whichType =="country"){
+        } else if (whichType == "country") {
             country = whichBtn;
         } else {
-            showall=whichBtn
+            showall = whichBtn
+
             // Setting the values to empty, so that Show All "deletes" earlier preferences
             level = '';
             reef = '';
@@ -159,19 +159,19 @@ for (var b = 0; b < filterBtn.length; b++) {
         for (i = 0; i < spots.length; i++) {
             var el = spots[i].getElementsByTagName("article")[0];
             var filterSurfspot = new Surfspot(el.getAttribute('id'), el.getAttribute('data-level'), el.getAttribute('data-reefType'), el.getAttribute('data-country'));
-            
+
             //Start by showing all the options, then later the non-matching spots will be hidden. Hides both the spot photo and text + the add/remove to bucketlist
             spots[i].style.display = "";
             pictureClass[i].style.display = "";
             hideBkt[i].style.display = "";
-        
+
             // For the level buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
             if (whichType == "showall") {
                 spots[i].style.display = "";
                 pictureClass[i].style.display = "";
                 hideBkt[i].style.display = "";
                 continue
-            }   
+            }
 
             if (filterSurfspot.level !== level && level != "") {
                 spots[i].style.display = "none";
@@ -185,16 +185,16 @@ for (var b = 0; b < filterBtn.length; b++) {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
                 hideBkt[i].style.display = "none";
-                continue;                    
+                continue;
             }
-            
+
             // For the country buttons, if the location attributes does not match the chosen filter, then the location will be hidden.
             if (filterSurfspot.country != country && country != "") {
                 spots[i].style.display = "none";
                 pictureClass[i].style.display = "none";
                 hideBkt[i].style.display = "none";
                 continue;
-            }        
+            }
         }
     })
 };
@@ -203,7 +203,7 @@ for (var b = 0; b < filterBtn.length; b++) {
 
 // Create class for bucket list items. 
 class Bucketlist {
-    constructor (spot){
+    constructor(spot) {
         this.spot = spot;
     }
 }
@@ -217,7 +217,7 @@ var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 // Loop through our buttons to check which spot is clicked.
 for (var i = 0; i < bucketButtonClicked.length; i++) {
 
-// Check if the bucket item is already in the bucket, else push the new item to the bucket. 
+    // Check if the bucket item is already in the bucket, else push the new item to the bucket. 
     bucketButtonClicked[i].addEventListener("click", function () {
 
         // Creating a binding which gets the values from the button ID. 
@@ -227,26 +227,25 @@ for (var i = 0; i < bucketButtonClicked.length; i++) {
         // Usind .id to access the ID inside the element. Without it, we get the whole button text. 
         var newSpot = new Bucketlist(setNewSpot.id);
 
-        if (this.spot == setNewSpot.id){
+        if (this.spot == setNewSpot.id) {
             return false
         } else {
             spotsAdded.push(newSpot)
             localStorage.setItem("bucketItem", JSON.stringify(newSpot));
         }
-        
+
         console.log(newSpot);
         return
     });
 }
 
 //BUCKETLIST ADD (WITHOUT CLASSES)
+var bucketStorage = JSON.parse(localStorage.getItem("bucketItems"));
 
-var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
- 
-if (emptyBucket == null) {
-    emptyBucket = [];
+if (bucketStorage == null) {
+    bucketStorage = [];
 } else {
-    var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+    var bucketStorage = JSON.parse(localStorage.getItem("bucketItems"));
 }
 
 
@@ -255,17 +254,26 @@ var bucketButtonClicked = document.getElementsByClassName("bucketlist-btn");
 for (var i = 0; i < bucketButtonClicked.length; i++) {
 
     bucketButtonClicked[i].addEventListener("click", function (event) {
-        if (emptyBucket.includes(this.id)) {
+        if (bucketStorage.includes(this.id)) {
             return false
         } else {
-            emptyBucket.push(this.id)
-            localStorage.setItem("bucketItems", JSON.stringify(emptyBucket));
+            bucketStorage.push(this.id)
+            localStorage.setItem("bucketItems", JSON.stringify(bucketStorage));
 
-            console.log(emptyBucket);
+            console.log(bucketStorage);
             return //console.log(bucketButtonClicked);
         }
     })
 }
+
+//This function is used later to remove a specific item from the bucketItems array
+function getArrayIndex(elementID) {
+    for (i = 0; i < bucketStorage.length; i++) {
+        if (bucketStorage[i] == elementID) {
+            return i;
+        }
+    }
+};
 
 //Create REMOVE button.
 // Bind a value to the remove button from HTML
@@ -279,8 +287,8 @@ for (var i = 0; i < removeButton.length; i++) {
         var index = getArrayIndex(this.id);
 
         // Remove from the list. 
-        emptyBucket.splice(index, 1);
-        localStorage.setItem('bucketItems', JSON.stringify(emptyBucket));
+        bucketStorage.splice(index, 1);
+        localStorage.setItem('bucketItems', JSON.stringify(bucketStorage));
     })
 };
 
@@ -289,7 +297,7 @@ for (var i = 0; i < removeButton.length; i++) {
 var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
 
 var getUsername = checkLoginStatus.username;
-debugger
+
 // Create bindings
 var btnAdd = document.getElementsByClassName("bucketlist-btn");
 var btnRemove = document.getElementsByClassName("remove-btn");
@@ -297,27 +305,26 @@ var btnLogin = document.getElementsByClassName("login");
 var btnLogout = document.getElementsByClassName("logout");
 
 // Loop through buttons, hiding and showing buttons and login / logout depending on status
-if(getUsername) {
+if (getUsername) {
     btnLogin[0].style.visibility = "hidden";
     btnLogout[0].style.visibility = "visible";
 }
 
-for (var i = 0; i < btnAdd.length; i++){
-    if(getUsername){
-    btnAdd[i].style.visibility = "visible";
-    btnRemove[i].style.visibility = "visible";
-
+for (var i = 0; i < btnAdd.length; i++) {
+    if (getUsername) {
+        btnAdd[i].style.visibility = "visible";
+        btnRemove[i].style.visibility = "visible";
     }
 }
 
 var welcomeSpan = document.getElementById('userSession');
 
-if (checkLoginStatus != null){
+if (checkLoginStatus != null) {
     userSession.innerText = "Welcome" + " " + getUsername;
 }
 
 //This is a simple logout function, which clears the localstorage and then it reloads the location, so that the "welcome user" message is hidden.
-btnLogout[0].addEventListener("click", function(){
+btnLogout[0].addEventListener("click", function () {
     localStorage.clear();
     //This option reloads the same page so that the bucketlist functionality is removed
     //location.reload();

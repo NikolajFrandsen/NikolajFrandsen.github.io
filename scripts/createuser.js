@@ -77,11 +77,9 @@ submitLogin.addEventListener('click', function(){
 
         //Check if username and password are valid
         if (user.username == inputUsername.value && user.password == hashedInputPassword) {
-            
-            //See last access time. Right now not necessary
-            //user.setLastAccess();
 
             window.location.replace("index.html");
+            
             // 'Return true' helps to only return the successful login and leave out the other results.
             return true;
         }
@@ -89,17 +87,13 @@ submitLogin.addEventListener('click', function(){
     };
 
     // Count the number of login attempts (set to three)
-    if (loginAttempts == 1) {
+    if (loginAttempts == 0) {
         document.getElementById("loginResult").innerHTML = "No more login attempts";
     } else {
         loginAttempts--;
         document.getElementById("loginResult").innerHTML = ("Only" + " " + loginAttempts + " " + "login attempts left");
-        if (loginAttempts == 1) {
-
-            //TODO: Den disabler ikke, dette skal fixes!!
-            document.getElementById(username).disabled = true;
-            document.getElementById(password).disabled = true;
-            submit.disabled = true;
+        if (loginAttempts == 0) {
+            document.getElementById('submit').disabled = true;
         }
         return false;
     }
@@ -164,7 +158,5 @@ registerUser.addEventListener("click", function(regUser){
       document.getElementById("message").style.color = "black"; 
       document.getElementById("message").innerHTML = "Password is not matching";
       document.getElementById('registerUser').disabled = true;
-
-      //This code ONLY shows if the passwords are not matching, this does not stop the user from proceeding 
     } 
   }

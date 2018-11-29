@@ -4,21 +4,14 @@
 var showBucketListTable = document.getElementById('showBucketListTable');
 
 showBucketListTable.addEventListener('click', function(){
-        var emptyBucket = JSON.parse(localStorage.getItem("bucketItems"));
+        var bucketStorage = JSON.parse(localStorage.getItem("bucketItems"));
         var table = document.createElement("table");
         var tr = table.insertRow(-1);
-        // HEADER --> Remove brackets to see. 
-        // for (var i = 0; i < col.length; i++){
-        //     var th = document.createElement("th");
-        //     th.innerHTML = col[i];
-        //     tr.appendChild(th);
-        // }
-    
         
-        for (var i = 0; i < emptyBucket.length; i++){
+        for (var i = 0; i < bucketStorage.length; i++){
             tr = table.insertRow(-1);
             var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = emptyBucket[i];
+            tabCell.innerHTML = bucketStorage[i];
         }
         var divContainer = document.getElementById('showbucketlist');
         divContainer.innerHTML = "";
