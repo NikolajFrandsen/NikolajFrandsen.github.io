@@ -294,9 +294,9 @@ for (var i = 0; i < removeButton.length; i++) {
 
 // REQUIRE LOGIN 
 //Only show buttons if logged in
-var checkLoginStatus = JSON.parse(localStorage.getItem("users"));
+var checkLoginStatus = JSON.parse(localStorage.getItem("whoisloggedIn"));
 
-var getUsername = checkLoginStatus.username;
+var getUsername = checkLoginStatus;
 
 // Create bindings
 var btnAdd = document.getElementsByClassName("bucketlist-btn");
@@ -323,11 +323,10 @@ if (checkLoginStatus != null) {
     userSession.innerText = "Welcome" + " " + getUsername;
 }
 
-//This is a simple logout function, which clears the localstorage and then it reloads the location, so that the "welcome user" message is hidden.
-btnLogout[0].addEventListener("click", function () {
-    localStorage.clear();
-    //This option reloads the same page so that the bucketlist functionality is removed
-    //location.reload();
-    // This option redirects you to the sign in page after loggin out.
+//This is a simple logout function, which clears the localstorage, so that the "welcome user" message is hidden and the user will be redirected to the sign up / Login page (this reference happens in the top in the generic header).
+btnLogout[0].addEventListener("click", function(){
+    localStorage.removeItem("bucketItem");
+    localStorage.removeItem("bucketItems");
+    localStorage.removeItem("whoisloggedIn");
     btnLogin[0].style.visibility = "hidden";
 });

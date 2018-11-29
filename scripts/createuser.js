@@ -77,9 +77,14 @@ submitLogin.addEventListener('click', function(){
 
         //Check if username and password are valid
         if (user.username == inputUsername.value && user.password == hashedInputPassword) {
+            
+            //Create an array which contains which user has been logged in
+            var whoisloggedIn =[];
+            whoisloggedIn.push(inputUsername.value);
+            localStorage.setItem("whoisloggedIn", JSON.stringify(whoisloggedIn));
 
             window.location.replace("index.html");
-            
+
             // 'Return true' helps to only return the successful login and leave out the other results.
             return true;
         }
@@ -142,7 +147,7 @@ registerUser.addEventListener("click", function(regUser){
      objPeople.push(users);
 
      // Stringify object because localStorage only accepts strings
-     localStorage.setItem("users", JSON.stringify(users));
+     localStorage.setItem("users", JSON.stringify(objPeople));
 
      console.log(objPeople)
  });
