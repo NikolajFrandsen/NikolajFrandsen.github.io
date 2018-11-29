@@ -303,7 +303,6 @@ if(getUsername) {
 }
 
 for (var i = 0; i < btnAdd.length; i++){
-    debugger
     if(getUsername){
     btnAdd[i].style.visibility = "visible";
     btnRemove[i].style.visibility = "visible";
